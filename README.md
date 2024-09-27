@@ -20,12 +20,7 @@ Those assignments will be put on *Unfinished Assignments* part. After user has f
 
 As assignments are done by students, also the application is designed for students, **all students** will be the target users for the application. After the application has successfully developed, it will first open to university students. If the application is operating well, it will then open to all other students.
 
+## Why is this project of interest to you?
 
+For a simple reason: I am also a student. As a student, one of the main source of stress comes from heavy workload of assignments. I need an app to help me keep track of the assignments to be done. Out of my curiosity, I would like to know how much time did I contribute on every assignment. Therefore, I have come up with this project to record the assignments I have done. Looking at time spent is helpful for my time management as I can reflect how much time I spent on each course.
 
-
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
-
-An example of text with **bold** and *italic* fonts.  
