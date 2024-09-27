@@ -2,7 +2,6 @@
 
 ## What will the application do?
 
-=======
 This is an **assignment tracking application** that keeps track of a list of assignments to be done. The major feature is to record a list of assignments that haven't finished and will be finished soon. User can enter information of the assignment such as: 
 1. Name
 2. Related Courses
@@ -18,7 +17,6 @@ Those assignments will be put on *Unfinished Assignments* part. After user has f
 
 ## Who will use it?
 
-=======
 
 
 A *bulleted* list:
