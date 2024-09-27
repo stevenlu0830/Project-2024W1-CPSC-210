@@ -9,6 +9,7 @@ This is an **assignment tracking application** that keeps track of a list of ass
 4. Due Date
 5. Managed Start Time
 6. Description (Optional)
+
 Those assignments will be put on *Unfinished Assignments* part. After user has finished an assignment, he/she will enter finished time. Finally the assignment will be put on *Finished Assignments* part in order to let user review time spent on every assignments. Additional features include:
 - Viewing assignment details (including its description)
 - Editing informaiton and deleting assignment
