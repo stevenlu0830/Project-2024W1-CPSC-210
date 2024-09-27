@@ -24,3 +24,13 @@ As assignments are done by students, also the application is designed for studen
 
 For a simple reason: I am also a student. As a student, one of the main source of stress comes from heavy workload of assignments. I need an app to help me keep track of the assignments to be done. Out of my curiosity, I would like to know how much time did I contribute on every assignment. Therefore, I have come up with this project to record the assignments I have done. Looking at time spent is helpful for my time management as I can reflect how much time I spent on each course.
 
+# User Stories
+
+- I want to be able to add an assignment to a list of unfinished assignments and specify the above information
+- I want to be able to view the list of unfinished and finished assignments
+- I want to be able to edit the information of the assignment
+- I want to be able to remove an assignment from a list of unfinished assignments and a list of finished assignments
+- I want to be able to view the number of unfinished assignments
+- I want to be able to move an assignment from unfinished assignment list to finished assignment list
+- I want to be able to see statistics on how much time I spent on each course
+- I want to be able to sort the finished assignments by increasing/decreasing order of time spent
