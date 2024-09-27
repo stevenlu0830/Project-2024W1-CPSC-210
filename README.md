@@ -18,6 +18,9 @@ Those assignments will be put on *Unfinished Assignments* part. After user has f
 
 ## Who will use it?
 
+As assignments are done by students, also the application is designed for students, **all students** will be the target users for the application. After the application has successfully developed, it will first open to university students. If the application is operating well, it will then open to all other students.
+
+
 
 
 A *bulleted* list:
