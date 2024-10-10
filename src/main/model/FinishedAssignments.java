@@ -15,7 +15,7 @@ public class FinishedAssignments {
     private ArrayList<Homework> sortedFinishedAssignments;
     private ArrayList<Long> timeSpent;
 
-    private int ID = 1;
+    private int hwID = 1;
     private String name;
     private String course;
     private AsmType type;

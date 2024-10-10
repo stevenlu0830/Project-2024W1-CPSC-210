@@ -13,7 +13,7 @@ import java.util.ArrayList;
 // Represent a homework that has id, name, course, type, startTime, description and finishTime.
 public class Homework {
 
-    private int ID;
+    private int hwID;
     private String name;
     private String course;
     private AsmType type;
@@ -29,7 +29,7 @@ public class Homework {
 
     // Getters
     public int getID() {
-        return ID;
+        return hwID;
     }
 
     public String getName() {

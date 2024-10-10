@@ -12,7 +12,7 @@ public class UnfinishedAssignments {
 
     private ArrayList<Homework> unfinishedAssignments;
 
-    private int ID = 1;
+    private int hwID = 1;
     private String name;
     private String course;
     private AsmType type;
