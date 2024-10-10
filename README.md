@@ -28,7 +28,7 @@ For a simple reason: I am also a student. As a student, one of the main source o
 
 - I want to be able to add an assignment to a list of unfinished assignments and specify the above information
 - I want to be able to view the list of unfinished and finished assignments
-- I want to be able to edit the information of the assignment
+- I want to be able to edit the information (just the due date and description) of the assignment
 - I want to be able to remove an assignment from a list of unfinished assignments and a list of finished assignments
 - I want to be able to view the number of unfinished assignments
 - I want to be able to move an assignment from unfinished assignment list to finished assignment list
