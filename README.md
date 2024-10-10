@@ -32,5 +32,5 @@ For a simple reason: I am also a student. As a student, one of the main source o
 - I want to be able to remove an assignment from a list of unfinished assignments and a list of finished assignments
 - I want to be able to view the number of unfinished assignments
 - I want to be able to move an assignment from unfinished assignment list to finished assignment list
-- I want to be able to see statistics on how much time I spent on each course
-- I want to be able to sort the finished assignments by increasing/decreasing order of time spent
+- I want to be able to see statistics on how much time I spent on each assignment type
+- I want to be able to sort the finished assignments by increasing order of time spent
