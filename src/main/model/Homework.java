@@ -38,52 +38,52 @@ public class Homework {
 
     // Getters
     public int getID() {
-        return 0; // stub
+        return this.hwID;
     }
 
     public String getName() {
-        return ""; // stub
+        return this.name;
     }
 
     public String getCourse() {
-        return ""; // stub
+        return this.course;
     }
 
     public AsmType getType() {
-        return null; // stub
+        return this.type;
     }
 
     public String getDueDate() {
-        return ""; // stub
+        return this.dueDate;
     }
 
     public String getStartTime() {
-        return ""; // stub
+        return this.startTime;
     }
 
     public String getDescription() {
-        return ""; // stub
+        return this.description;
     }
 
     public String getFinishTime() {
-        return ""; // stub
+        return this.finishTime;
     }
 
     public long getDuration() {
-        return 0; // stub
+        return this.duration;
     }
 
     // REQUIRES: The date-time must be in the format in string "yyyy-mm-dd hh:mm"
     // MODIFIES: this
     // EFFECTS: Set a new dueDate
     public void setDueDate(String dueDateandTime) {
-        // stub
+        this.dueDate = dueDate;        
     }
 
     // MODIFIES: this
     // EFFECTS: Set a new description
     public void setDescription(String description) {
-        // stub
+        this.description = description;
     }
 
     // REQUIRES: The date-time must be in the format in string "yyyy-mm-dd hh:mm". finishTime must be
@@ -91,21 +91,31 @@ public class Homework {
     // MODIFIES: this
     // EFFECTS: Set a new finishTime
     public void setFinishTime(String finishTime) {
-        // stub
+        this.finishTime = finishTime;
     }
 
     // REQUIRES: The duration must be non-negative
     // MODIFIES: this
     // EFFECTS: Set a duration for the assignment
     public void setDuration(long duration) {
-        // stub
+        this.duration = duration;
     }
     
     // REQUIRES: The date-time must be in the format in string "yyyy-mm-dd hh:mm". 
     //           finishTime must be later than startTime
     // EFFECTS: Return the time difference (in minutes) between startTime and finishTime 
     public long getTimeDifference(String startTime, String finishTime) {
-        return 0; // stub
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String dateTime1 = startTime;
+        String dateTime2 = finishTime;
+
+        LocalDateTime startDateTime = LocalDateTime.parse(dateTime1, formatter);
+        LocalDateTime endDateTime = LocalDateTime.parse(dateTime2, formatter);
+
+        Duration duration = Duration.between(startDateTime, endDateTime);
+
+        long minutes = duration.toMinutes();
+        return minutes;
     }
         
 }
