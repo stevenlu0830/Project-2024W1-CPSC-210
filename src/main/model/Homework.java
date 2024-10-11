@@ -77,7 +77,7 @@ public class Homework {
     // MODIFIES: this
     // EFFECTS: Set a new dueDate
     public void setDueDate(String dueDateandTime) {
-        this.dueDate = dueDate;        
+        this.dueDate = dueDateandTime;        
     }
 
     // MODIFIES: this

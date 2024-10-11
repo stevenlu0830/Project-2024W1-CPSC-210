@@ -19,73 +19,102 @@ public class ListOfAssignments {
     
     // Getters
     public ArrayList<Homework> getUnfinishedAssignments() {
-        return null; // stub
+        return unfinishedAssignments;
     }
 
     public ArrayList<Homework> getFinishedAssignments() {
-        return null; // stub
+        return finishedAssignments;
     }
 
     public ArrayList<Homework> getSortedFinishedAssignments() {
-        return null; // stub
+        return sortedFinishedAssignments;
     }
 
     // REQUIRES: The format of dueDate and startTime must be "yyyy-mm-dd hh:mm", in string type.
     // MODIFIES: this
     // EFFECTS: Add a new assignment to a list of unfinished assignments
     public void addAssignment(Homework homework) {
-        // stub
+        unfinishedAssignments.add(homework);
     } 
 
     // REQUIRES: id > 0. The format of dueDate must be "yyyy-mm-dd hh:mm", in string type.
     // MODIFIES: Homework
     // EFFECTS: Edit the due date of a particular assignment
     public void editDueDate(int id, String dueDate) {
-        // stub
+        Homework hw = getHWbyID(id);
+        if (hw != null) {
+            hw.setDueDate(dueDate);
+        }
     }
 
     // REQUIRES: id > 0. 
     // MODIFIES: Homework
     // EFFECTS: Edit the description of a particular assignment based on given ID.
     public void editDescription(int id, String description) {
-        // stub
+        Homework hw2 = getHWbyID(id);
+        if (hw2 != null) {
+            hw2.setDescription(description);
+        }
     }
 
     // REQUIRES: id > 0. 
     // MODIFIES: this
     // EFFECTS: Remove a particular assignment from the unfinished assignment list based on given ID.
     public void removeAssignment(int id) {
-        // stub
+        Homework hw = getHWbyID(id);
+        if (hw != null) {
+            unfinishedAssignments.remove(hw);
+        }
     }
 
     // EFFECTS: View the number of unfinished assignments in the list
     public int viewNumberUnfinishedAssignments() {
-        return 0; // stub
+        return unfinishedAssignments.size();
     }
 
     // EFFECTS: View the number of finished assignments in the list
     public int viewNumberFinishedAssignments() {
-        return 0; // stub
+        return finishedAssignments.size();
     }
 
     // REQUIRES: id > 0. The format of finishTime must be "yyyy-mm-dd hh:mm", in string type.
     // MODIFIES: this, Homework
     // EFFECTS: Move a particular assignment from unfinished list to finished list
     public void moveToFinished(int id, String finishTime) {
-        // stub
+        Homework hw = getHWbyID(id);
+        long duration;
+
+        if (hw != null) {
+            String startTime = hw.getStartTime();
+            hw.setFinishTime(finishTime);
+            duration = hw.getTimeDifference(startTime, finishTime);
+            hw.setDuration(duration);
+
+            finishedAssignments.add(hw);
+            unfinishedAssignments.remove(hw);
+        }
     }
 
 
     // MODIFIES: this
     // EFFECTS: Sort the finished assignment in increasing order of time spent
     public void sortFinishedAssignments() {
-        // stub
+        for (Homework h : finishedAssignments) {
+            sortedFinishedAssignments.add(h);
+        }
+        sortedFinishedAssignments.sort(Comparator.comparingLong(Homework::getDuration));
     }
 
     // REQUIRES: id > 0
     // EFFECTS: Given ID and return the corresponding homework. Otherwise return null.
     public Homework getHWbyID(int id) {
-        return null; // stub
+        for (Homework h : unfinishedAssignments) {
+            if (h.getID() == id) {
+                return h;
+            }
+        }
+        return null;
+
     }
 
 }
