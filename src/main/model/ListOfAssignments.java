@@ -51,9 +51,9 @@ public class ListOfAssignments {
     // MODIFIES: Homework
     // EFFECTS: Edit the description of a particular assignment based on given ID.
     public void editDescription(int id, String description) {
-        Homework hw2 = getHWbyID(id);
-        if (hw2 != null) {
-            hw2.setDescription(description);
+        Homework hw = getHWbyID(id);
+        if (hw != null) {
+            hw.setDescription(description);
         }
     }
 
