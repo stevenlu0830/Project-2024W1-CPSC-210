@@ -1,9 +1,7 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +13,8 @@ public class HomeworkTest {
     @BeforeEach
     public void setUp() {
         h1 = new Homework(1, "WW1", "MATH 100", AsmType.ShortQuestions, "2024-10-11 23:59", "2024-10-10 12:00", "");
-        h2 = new Homework(2, "Research Paper", "WRDS 150", AsmType.Essay, "2024-10-11 23:59", "2024-10-10 12:01", ">= 2000 words");
+        h2 = new Homework(2, "Research Paper", "WRDS 150", AsmType.Essay, "2024-10-11 23:59", "2024-10-10 12:01", 
+        ">= 2000 words");
     }
 
     @Test
@@ -52,5 +51,14 @@ public class HomeworkTest {
 
         h1.setFinishTime("2024-10-10 12:01");
         assertEquals("2024-10-10 12:01", h1.getFinishTime());
+
+        h1.setDuration(10);
+        assertEquals(10, h1.getDuration());
+    }
+
+    @Test
+    public void testTimeDifferenceinMinutes() {
+        h1.setFinishTime("2024-10-10 12:01");
+        assertEquals(1, h1.getTimeDifference(h1.getStartTime(), h1.getFinishTime()));
     }
 }
