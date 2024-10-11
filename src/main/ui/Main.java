@@ -9,26 +9,21 @@ import model.ListOfAssignments;
 public class Main {
 
     public static void main(String[] args) {
-
         int hwID = 1;
         boolean operating = true;
         int input;
         Scanner scanner = new Scanner(System.in);
-
         ListOfAssignments listOfAssignments;
         ArrayList<Homework> unfinishedAssignments;
         ArrayList<Homework> finishedAssignments;
         ArrayList<Homework> sortedFinishedAssignments;
-
         listOfAssignments = new ListOfAssignments();
         System.out.println("Welcome to the Assignment Tracking App!");
-        
         while (operating) {
             displayMenu();
             input = scanner.nextInt();
-
             if (input == 1) {
-
+                
                 boolean invalidType = false;
 
                 String name;
@@ -208,6 +203,7 @@ public class Main {
         }
     }
 
+    // EFFECTS: Displays all features in the app.
     public static void displayMenu() {
         displayHorizontalLine();
         System.out.println("Select a feature below: ");
@@ -222,10 +218,12 @@ public class Main {
         displayHorizontalLine();
     }
 
+    // EFFECTS: Display a horizontal line
     public static void displayHorizontalLine() {
         System.out.println("---------------------------------------------");
     }
 
+    // EFFECTS: Return the corresponding type of assignment in AsmType data type 
     public static AsmType determineType(String typeEntered) {
         if (typeEntered.equals("quiz")) {
             return AsmType.Quiz;
@@ -260,6 +258,10 @@ public class Main {
         } else {
             return "";
         }
+    }
+
+    public void addOneAssignment() {
+
     }
 
     

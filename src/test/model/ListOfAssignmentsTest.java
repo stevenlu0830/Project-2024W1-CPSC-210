@@ -54,6 +54,8 @@ public class ListOfAssignmentsTest {
         testList.editDueDate(1, "2024-10-21 11:22");
         assertEquals("2024-10-21 11:22", testList.getHWbyID(1).getDueDate());
         assertEquals(null, testList.getHWbyID(0));
+        testList.editDueDate(0, "2024-10-10 11:11");
+        assertEquals("2024-10-21 11:22", testList.getHWbyID(1).getDueDate());
     } 
 
     @Test
@@ -67,6 +69,8 @@ public class ListOfAssignmentsTest {
         testList.editDescription(2, "use a calculator");
         assertEquals("use a calculator", testList.getHWbyID(2).getDescription());
         assertEquals(null, testList.getHWbyID(0));
+        testList.editDescription(0, "use a calculator");
+        assertEquals("use a calculator", testList.getHWbyID(2).getDescription());
     }
 
     @Test
