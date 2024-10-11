@@ -25,19 +25,14 @@ public class UnfinishedAssignments {
     
     // EFFECTS: Construct the list of unfinished assignments, which is originally empty
     public UnfinishedAssignments() {
-        unfinishedAssignments = new ArrayList<Homework>();
+        unfinishedAssignments = new ArrayList<>();
     }
 
-    // Getters
-    public ArrayList<Homework> getUnfinishedAssignments() {
-        return unfinishedAssignments;
-    }
-
-
+    // REQUIRES: The format of dueDate and startTime must be "yyyy-mm-dd hh:mm", in string type.
     // MODIFIES: this
     // EFFECTS: Add a new assignment to a list of unfinished assignments
-    public void addAssignment(String name, String course, AsmType type, String dueDate, String startTime, String description) {
-
+    public void addAssignment(Homework homework) {
+        unfinishedAssignments.add(homework);
     } 
 
     // MODIFIES: this
@@ -54,7 +49,7 @@ public class UnfinishedAssignments {
 
     // EFFECTS: View the number of unfinished assignments in the list
     public int viewNumberUnfinishedAssignments() {
-        return 0;
+        return unfinishedAssignments.size();
     }
 
     // MODIFIES: this
@@ -63,6 +58,7 @@ public class UnfinishedAssignments {
 
     }
 
+    // REQUIRES: finishTime must be later than startTime
     // EFFECTS: Return the time difference (in minutes) between finishTime and startTime
     public long timeDifferenceinMinutes(String startTime, String finishTime) {
         return 0;
