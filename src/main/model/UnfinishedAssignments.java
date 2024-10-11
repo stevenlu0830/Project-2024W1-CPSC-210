@@ -11,20 +11,21 @@ import java.time.format.DateTimeFormatter;
 public class UnfinishedAssignments {
 
     private ArrayList<Homework> unfinishedAssignments;
+    private int hwID;
 
-    private int hwID = 1;
     private String name;
     private String course;
     private AsmType type;
+    private String dueDate;
     private String startTime;
     private String description;
 
     private String finishTime;
-    private Homework homework;
+    private HomeworkTest homework;
     
     // EFFECTS: Construct the list of unfinished assignments, which is originally empty
     public UnfinishedAssignments() {
-
+        unfinishedAssignments = new ArrayList<Homework>();
     }
 
     // Getters
@@ -35,7 +36,7 @@ public class UnfinishedAssignments {
 
     // MODIFIES: this
     // EFFECTS: Add a new assignment to a list of unfinished assignments
-    public void addAssignment(String name, String course, AsmType type, LocalTime startTime, String description) {
+    public void addAssignment(String name, String course, AsmType type, String dueDate, String startTime, String description) {
 
     } 
 

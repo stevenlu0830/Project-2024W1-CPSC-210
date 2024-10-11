@@ -11,34 +11,20 @@ import java.util.ArrayList;
 // Represents a list of finished assignments for recording
 public class FinishedAssignments {
 
-    private ArrayList<Homework> finishedAssignments;
-    private ArrayList<Homework> sortedFinishedAssignments;
+    private ArrayList<HomeworkTest> finishedAssignments;
+    private ArrayList<HomeworkTest> sortedFinishedAssignments;
     private ArrayList<Long> timeSpent;
-
     private int hwID = 1;
+
     private String name;
     private String course;
     private AsmType type;
+    private String dueDate;
     private String startTime;
     private String description;
 
     private String finishTime;
-    private Homework homework;
-
-
-    // Getters:
-    public ArrayList<Homework> getFinishedAssignments() {
-        return finishedAssignments;
-    }
-
-    public ArrayList<Homework> getSortedFinishedAssignments() {
-        return sortedFinishedAssignments;
-    }
-
-    public ArrayList<Long> getTimeSpent() {
-        return timeSpent;
-    }
-
+    private HomeworkTest homework;
 
     // EFFECTS: Construct a list of finished assignments, which is originally empty. 
     //          Construct a list of sorted finished assignments, which is originally empty. 
@@ -46,9 +32,22 @@ public class FinishedAssignments {
 
     }
 
+    // Getters:
+    public ArrayList<HomeworkTest> getFinishedAssignments() {
+        return finishedAssignments;
+    }
+
+    public ArrayList<HomeworkTest> getSortedFinishedAssignments() {
+        return sortedFinishedAssignments;
+    }
+
+    public ArrayList<Long> getTimeSpent() {
+        return timeSpent;
+    }
+
     // MODIFIES: this
     // EFFECTS: Add an assignment from the unfinished list to the finished assignment list
-    public void addFinishedAssignment(Homework homework) {
+    public void addFinishedAssignment(HomeworkTest homework) {
 
     }
 
