@@ -242,6 +242,7 @@ public class Main {
         }
     }
 
+    // EFFECTS: Return the corresponding type of assignment in String data type
     public static String getTypeInString(AsmType t) {
         if (t == AsmType.Quiz) {
             return "Quiz";
@@ -258,10 +259,6 @@ public class Main {
         } else {
             return "";
         }
-    }
-
-    public void addOneAssignment() {
-
     }
 
     
