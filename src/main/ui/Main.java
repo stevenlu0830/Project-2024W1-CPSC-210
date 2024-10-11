@@ -23,7 +23,7 @@ public class Main {
         listOfAssignments = new ListOfAssignments();
         System.out.println("Welcome to the Assignment Tracking App!");
         
-        while(operating) {
+        while (operating) {
             displayMenu();
             input = scanner.nextInt();
 
@@ -48,7 +48,7 @@ public class Main {
                 course = scanner.nextLine();
                 do {
                     System.out.println("Enter the type of assignment " + 
-                    "(quiz/short questions/essay/extra practices/readings/others)");
+                            "(quiz/short questions/essay/extra practices/readings/others)");
                     typeEntered = scanner.nextLine();
                     type = determineType(typeEntered);
                     if (type == null) {
@@ -82,8 +82,8 @@ public class Main {
                     for (Homework h : unfinishedAssignments) {
                         typeInString = getTypeInString(h.getType());
                         System.out.println("ID: " + h.getID() + ", " + h.getName() + ", " + h.getCourse() + ", " + 
-                        typeInString + ", Due at " + h.getDueDate() + ", Managed to start at " + h.getStartTime() + 
-                        ", Description: " + h.getDescription());
+                                typeInString + ", Due at " + h.getDueDate() + ", Managed to start at " + 
+                                h.getStartTime() + ", Description: " + h.getDescription());
                     }
                 }
                 System.out.println("\n");
@@ -95,10 +95,10 @@ public class Main {
                 } else {
                     for (Homework h : finishedAssignments) {
                         typeInString2 = getTypeInString(h.getType());
-                        System.out.println("ID: " + h.getID() + " " + h.getName() + " " + h.getCourse() + " " + 
-                        typeInString2 + ". Due at " + h.getDueDate() + ". Managed to start at " + h.getStartTime() + 
-                        " Description: " + h.getDescription() + ". Finished at " + h.getFinishTime() + ". Spent " + 
-                        h.getDuration() + " minutes");
+                        System.out.println("ID: " + h.getID() + " " + h.getName() + " " + h.getCourse() + " " 
+                                + typeInString2 + ". Due at " + h.getDueDate() + ". Managed to start at " 
+                                + h.getStartTime() + " Description: " + h.getDescription() + ". Finished at " 
+                                + h.getFinishTime() + ". Spent " + h.getDuration() + " minutes");
                     }
                 }
 
@@ -170,7 +170,8 @@ public class Main {
                 displayHorizontalLine();
                 System.out.println("Enter the assignment ID that represents the assignment you have finished: ");
                 enteredID = scanner.nextInt();
-                System.out.println("What time have you finished? Please enter in yyyy-mm-dd hh:mm format: "); scanner.nextLine();
+                System.out.println("What time have you finished? Please enter " 
+                        + "in yyyy-mm-dd hh:mm format: "); scanner.nextLine();
 
                 finishTime = scanner.nextLine();
                 listOfAssignments.moveToFinished(enteredID, finishTime);
@@ -186,10 +187,10 @@ public class Main {
                 sortedFinishedAssignments = listOfAssignments.getSortedFinishedAssignments();
                 for (Homework h : sortedFinishedAssignments) {
                     typeInString = getTypeInString(h.getType());
-                        System.out.println("ID: " + h.getID() + " " + h.getName() + " " + h.getCourse() + " " + 
-                        typeInString + ". Due at " + h.getDueDate() + ". Managed to start at " + h.getStartTime() + 
-                        " Description: " + h.getDescription() + ". Finished at " + h.getFinishTime() + ". Spent " + 
-                        h.getDuration() + " minutes");
+                    System.out.println("ID: " + h.getID() + " " + h.getName() + " " + h.getCourse() + " " + 
+                                typeInString + ". Due at " + h.getDueDate() + ". Managed to start at " + 
+                                h.getStartTime() + " Description: " + h.getDescription() + ". Finished at " + 
+                                h.getFinishTime() + ". Spent " + h.getDuration() + " minutes");
                 }
 
             } else if (input == 8) {

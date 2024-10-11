@@ -9,7 +9,8 @@ public class ListOfAssignments {
     private ArrayList<Homework> finishedAssignments;
     private ArrayList<Homework> sortedFinishedAssignments;
         
-    // EFFECTS: Construct the list of unfinished assignments, finished assignments and sorted assignments, which is originally empty
+    // EFFECTS: Construct the list of unfinished assignments, finished assignments and sorted assignments, which is 
+    //          originally empty
     public ListOfAssignments() {
         unfinishedAssignments = new ArrayList<Homework>();
         finishedAssignments = new ArrayList<Homework>();
