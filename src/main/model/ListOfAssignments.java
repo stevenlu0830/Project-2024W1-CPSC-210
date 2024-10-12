@@ -100,6 +100,7 @@ public class ListOfAssignments {
     // MODIFIES: this
     // EFFECTS: Sort the finished assignment in increasing order of time spent
     public void sortFinishedAssignments() {
+        sortedFinishedAssignments.clear();
         for (Homework h : finishedAssignments) {
             sortedFinishedAssignments.add(h);
         }
