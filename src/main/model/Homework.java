@@ -25,8 +25,8 @@ public class Homework implements Writable {
     private String finishTime;
     private long duration;
 
-    // EFFECTS: Construct an assignment with given ID, name, course, type, dueDate, startTime, description, but having
-    //          no finishTime and duration.
+    // EFFECTS: Construct an assignment with given ID, name, course, type, dueDate, startTime, description, finishTime
+    //          and duration.
     public Homework(int hwID, String name, String course, AsmType type, String dueDate, String startTime, 
             String description, String finishTime, int duration) {
         this.hwID = hwID;
@@ -122,11 +122,10 @@ public class Homework implements Writable {
         return minutes;
     }
 
+    // EFFECTS: Put an assignment into the array list in json file and return the json file
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        // json.put("name", name);
-        // json.put("category", category);
         json.put("hwID", hwID);
         json.put("name", name);
         json.put("course", course);

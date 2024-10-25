@@ -1,36 +1,47 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.AsmType;
 import model.Homework;
 import model.ListOfAsms;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+// Represents user-interactive assignment tracking application
 public class App {
 
-    int hwID = 1;
-    boolean operating = true;
-    int input;
-    Scanner scanner = new Scanner(System.in);
+    private static final String JSON_STORE = "./data/listOfAssignments.json";
 
-    ListOfAsms listOfAssignments;
-    ArrayList<Homework> unfinishedAssignments;
-    ArrayList<Homework> finishedAssignments;
-    ArrayList<Homework> sortedFinishedAssignments;
+    private int hwID = 1;
+    private boolean operating = true;
+    private int input;
+    private Scanner scanner = new Scanner(System.in);
 
-    String name;
-    String course;
-    AsmType type;
-    String dueDate;
-    String startTime;
-    String description;
+    private ListOfAsms listOfAssignments;
+    private ArrayList<Homework> unfinishedAssignments;
+    private ArrayList<Homework> finishedAssignments;
+    private ArrayList<Homework> sortedFinishedAssignments;
+
+    private String name;
+    private String course;
+    private AsmType type;
+    private String dueDate;
+    private String startTime;
+    private String description;
         
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: Construct an object that runs the assignment tracking app
-    public App() {
+    public App() throws FileNotFoundException {
         System.out.println("Welcome to the Assignment Tracking App!");
         listOfAssignments = new ListOfAsms();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runApp();
     }
 
@@ -45,7 +56,9 @@ public class App {
         System.out.println("5. View the number of unfinished and finished assignments");
         System.out.println("6. Move an unfinished assignmnet to finished assignment list");
         System.out.println("7. Sort the list of finished assignments in increasing order of duration");
-        System.out.println("8. Quit application");
+        System.out.println("8. Save all information so far");
+        System.out.println("9. Load all the information");
+        System.out.println("10. Quit application");
         displayHorizontalLine();
     }
 
@@ -55,6 +68,9 @@ public class App {
         while (operating) {
             displayMenu();
             input = scanner.nextInt();
+            if (input == 10) {
+                thankYouMessage();
+            }
             doCorrespondingFunction(input);
         }
     }
@@ -76,7 +92,9 @@ public class App {
         } else if (choice == 7) {
             sortFinishedAssignmentsByDuration();
         } else if (choice == 8) {
-            thankYouMessage();
+            saveAllInformation();
+        } else if (choice == 9) {
+            loadAllInformation();
         } else {
             errorMessage();
         }
@@ -379,6 +397,29 @@ public class App {
     private void errorMessage() {
         displayHorizontalLine();
         System.out.println("Oops...You have entered an invalid value. Please re-enter again :(");
+    }
+
+    // EFFECTS: Save all the information into the file
+    private void saveAllInformation() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(listOfAssignments);
+            jsonWriter.close();
+            System.out.println("Saved all assignment records to " + JSON_STORE + " !");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads all information from file
+    private void loadAllInformation() {
+        try {
+            listOfAssignments = jsonReader.read();
+            System.out.println("Loaded list of assignments from " + JSON_STORE + " !");
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

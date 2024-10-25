@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+// Represents a reader that reads list of assignments from JSON data stored in file
 public class JsonReader {
 
     private String source;

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import model.ListOfAsms;
 
-// // Represents a writer that writes JSON representation of assignment lists to file
+// Represents a writer that writes JSON representation of assignment lists to file
 public class JsonWriter {
 
     private static final int TAB = 4;

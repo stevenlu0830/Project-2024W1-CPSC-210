@@ -14,7 +14,7 @@ public class ListOfAsms implements Writable {
     private ArrayList<Homework> finishedAssignments;
     private ArrayList<Homework> sortedFinishedAssignments;
         
-    // EFFECTS: Construct the list of unfinished assignments, finished assignments and sorted assignments, which is 
+    // EFFECTS: Construct the list of unfinished assignments, finished assignments and sorted assignments, which is
     //          originally empty
     public ListOfAsms() {
         unfinishedAssignments = new ArrayList<Homework>();
@@ -42,6 +42,20 @@ public class ListOfAsms implements Writable {
     public void addAssignment(Homework homework) {
         unfinishedAssignments.add(homework);
     } 
+
+    // REQUIRES: The format of dueDate and startTime must be "yyyy-mm-dd hh:mm", in string type.
+    // MODIFIES: this
+    // EFFECTS: Add a new assignment to a list of finished assignments
+    public void addFinishAssignment(Homework hw) {
+        finishedAssignments.add(hw);
+    }
+
+    // REQUIRES: The format of dueDate and startTime must be "yyyy-mm-dd hh:mm", in string type.
+    // MODIFIES: this
+    // EFFECTS: Add a new assignment to a list of sorted finished assignments
+    public void addSortedFinishAssignment(Homework hw) {
+        sortedFinishedAssignments.add(hw);
+    }
 
     // REQUIRES: id > 0. The format of dueDate must be "yyyy-mm-dd hh:mm", in string type.
     // MODIFIES: Homework
@@ -124,25 +138,19 @@ public class ListOfAsms implements Writable {
 
     }
 
-    public void addFinishAssignment(Homework hw) {
-        finishedAssignments.add(hw);
-    }
-
-    public void addSortedFinishAssignment(Homework hw) {
-        sortedFinishedAssignments.add(hw);
-    }
-
+    // EFFECTS: Put the three array lists into the json file, later on we add every elements in every list
+    //          in the file. Return json object contains of array lists.
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("unfinishedAssignments", UnfinishedAsmsToJson());
-        json.put("finishedAssignments", FinishedAsmsToJson());
-        json.put("sortedFinishedAssignments", SortedFinishedAsmsToJson());
+        json.put("unfinishedAssignments", unfinishedAsmsToJson());
+        json.put("finishedAssignments", finishedAsmsToJson());
+        json.put("sortedFinishedAssignments", sortedFinishedAsmsToJson());
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
-    private JSONArray UnfinishedAsmsToJson() {
+    // EFFECTS: returns assignments in this unfinished assignments list as a JSON array
+    private JSONArray unfinishedAsmsToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Homework hw : unfinishedAssignments) {
@@ -152,8 +160,8 @@ public class ListOfAsms implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
-    private JSONArray FinishedAsmsToJson() {
+    // EFFECTS: returns assignments in this finished assignments list as a JSON array
+    private JSONArray finishedAsmsToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Homework hw : finishedAssignments) {
@@ -163,8 +171,8 @@ public class ListOfAsms implements Writable {
         return jsonArray;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
-    private JSONArray SortedFinishedAsmsToJson() {
+    // EFFECTS: returns assignments in this sorted finished assignments list as a JSON array
+    private JSONArray sortedFinishedAsmsToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Homework hw : sortedFinishedAssignments) {
