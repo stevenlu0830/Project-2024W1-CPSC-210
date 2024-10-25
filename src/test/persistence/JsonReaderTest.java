@@ -38,7 +38,7 @@ public class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderGeneralLists() {
+    public void testReaderGeneralLists() {
         JsonReader reader = new JsonReader("./data/testReadGeneralList.json");
         try {
             ListOfAsms loa = reader.read();

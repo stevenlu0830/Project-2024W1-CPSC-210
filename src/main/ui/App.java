@@ -94,7 +94,7 @@ public class App {
         dueDate = enterDueDate();
         startTime = enterStartTime();
         description = enterDescription();
-        hw = new Homework(hwID, name, course, type, dueDate, startTime, description);
+        hw = new Homework(hwID, name, course, type, dueDate, startTime, description, "", 0);
         hwID++;
         listOfAssignments.addAssignment(hw);
         System.out.println("Assignment added!");

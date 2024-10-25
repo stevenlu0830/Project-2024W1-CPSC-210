@@ -24,7 +24,7 @@ public class Homework {
     // EFFECTS: Construct an assignment with given ID, name, course, type, dueDate, startTime, description, but having
     //          no finishTime and duration.
     public Homework(int hwID, String name, String course, AsmType type, String dueDate, String startTime, 
-            String description) {
+            String description, String finishTime, int duration) {
         this.hwID = hwID;
         this.name = name;
         this.course = course;
@@ -32,8 +32,8 @@ public class Homework {
         this.dueDate = dueDate;
         this.startTime = startTime;
         this.description = description;
-        this.finishTime = "";
-        this.duration = 0;
+        this.finishTime = finishTime;
+        this.duration = duration;
     }
 
     // Getters

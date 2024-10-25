@@ -119,4 +119,12 @@ public class ListOfAsms {
 
     }
 
+    public void addFinishAssignment(Homework hw) {
+        finishedAssignments.add(hw);
+    }
+
+    public void addSortedFinishAssignment(Homework hw) {
+        sortedFinishedAssignments.add(hw);
+    }
+
 }

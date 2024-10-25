@@ -12,9 +12,9 @@ public class HomeworkTest {
 
     @BeforeEach
     public void setUp() {
-        h1 = new Homework(1, "WW1", "MATH 100", AsmType.ShortQuestions, "2024-10-11 23:59", "2024-10-10 12:00", "");
+        h1 = new Homework(1, "WW1", "MATH 100", AsmType.ShortQuestions, "2024-10-11 23:59", "2024-10-10 12:00", "", "", 0);
         h2 = new Homework(2, "Research Paper", "WRDS 150", AsmType.Essay, "2024-10-11 23:59", "2024-10-10 12:01", 
-        ">= 2000 words");
+        ">= 2000 words", "", 0);
     }
 
     @Test

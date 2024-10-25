@@ -52,13 +52,13 @@ public class JsonWriterTest extends JsonTest {
         try {
             ListOfAsms loa = new ListOfAsms();
             loa.addAssignment(new Homework(5, "Webwork 1", "MATH 200", AsmType.ShortQuestions, "2024-10-24 10:00", 
-                    "2024-10-23 13:00", ""));
+                    "2024-10-23 13:00", "", "", 0));
             loa.addAssignment(new Homework(6, "PSet1", "CPSC 110", AsmType.ShortQuestions, "2024-10-26 22:00",
-                    "2024-10-25 20:00", "Rent a computer"));
+                    "2024-10-25 20:00", "Rent a computer", "", 0));
             loa.addAssignment(new Homework(7, "Research Paper", "WRDS 150", AsmType.Essay, "2024-10-28 23:59",
-                    "2024-10-27 20:00", "At least 2000 words"));
+                    "2024-10-27 20:00", "At least 2000 words", "", 0));
             loa.addAssignment(new Homework(8, "Newspaper Reading", "GEOG 121", AsmType.Readings, "2024-10-30 23:59",
-                    "2024-10-29 01:00", ""));
+                    "2024-10-29 01:00", "", "", 0));
             loa.moveToFinished(7, "2024-10-27 20:10");
             loa.moveToFinished(8, "2024-10-29 01:05");
             JsonWriter writer = new JsonWriter("./data/testWriteGeneralList.json");

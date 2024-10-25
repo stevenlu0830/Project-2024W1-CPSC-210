@@ -32,9 +32,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testAddAssignments() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
-        Homework hw2 = new Homework(1, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
+        Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
+                "2024-10-16 00:00", "", "", 0);
         
         testList.addAssignment(hw1);
         assertEquals(1, testList.viewNumberUnfinishedAssignments());
@@ -46,9 +46,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testEditDueDate() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         testList.addAssignment(hw1);
         testList.addAssignment(hw2);
         testList.editDueDate(1, "2024-10-21 11:22");
@@ -61,9 +61,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testEditDescription() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         testList.addAssignment(hw1);
         testList.addAssignment(hw2);
         testList.editDescription(2, "use a calculator");
@@ -76,9 +76,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testRemoveAssignment() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         testList.addAssignment(hw1);
         testList.addAssignment(hw2);
         assertEquals(2, testList.viewNumberUnfinishedAssignments());
@@ -94,9 +94,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testMoveToFinished() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         testList.addAssignment(hw1);
         testList.addAssignment(hw2);
         assertEquals(2, testList.viewNumberUnfinishedAssignments());
@@ -118,9 +118,9 @@ public class ListOfAssignmentsTest {
     @Test
     public void testSortFinishedAssignments() {
         Homework hw1 = new Homework(1, "WW3", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         Homework hw2 = new Homework(2, "WW4", "MATH 200", AsmType.ShortQuestions, "2024-10-20 12:34", 
-                "2024-10-16 00:00", "");
+                "2024-10-16 00:00", "", "", 0);
         testList.addAssignment(hw1);
         testList.addAssignment(hw2);
         testList.moveToFinished(1, "2024-10-16 00:02");
