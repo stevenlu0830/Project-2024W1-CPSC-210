@@ -2,6 +2,7 @@ package model;
 
 import static org.junit.Assert.assertEquals;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,8 @@ public class HomeworkTest {
 
     @BeforeEach
     public void setUp() {
-        h1 = new Homework(1, "WW1", "MATH 100", AsmType.ShortQuestions, "2024-10-11 23:59", "2024-10-10 12:00", "", "", 0);
+        h1 = new Homework(1, "WW1", "MATH 100", AsmType.ShortQuestions, "2024-10-11 23:59", "2024-10-10 12:00", "",
+                "", 0);
         h2 = new Homework(2, "Research Paper", "WRDS 150", AsmType.Essay, "2024-10-11 23:59", "2024-10-10 12:01", 
         ">= 2000 words", "", 0);
     }
@@ -60,5 +62,11 @@ public class HomeworkTest {
     public void testTimeDifferenceinMinutes() {
         h1.setFinishTime("2024-10-10 12:01");
         assertEquals(1, h1.getTimeDifference(h1.getStartTime(), h1.getFinishTime()));
+    }
+
+    @Test
+    public void testToJson() {
+        JSONObject json = h1.toJson();
+        assertEquals("MATH 100", json.get("course"));
     }
 }

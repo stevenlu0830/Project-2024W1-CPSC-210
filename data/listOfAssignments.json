@@ -1,28 +1,5 @@
 {
-    "unfinishedAssignments": [
-        {
-            "duration": 0,
-            "finishTime": "",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name1",
-            "course": "course1",
-            "description": "no1",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 1,
-            "type": "Quiz"
-        },
-        {
-            "duration": 0,
-            "finishTime": "",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name2",
-            "course": "course2",
-            "description": "no2",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 2,
-            "type": "ShortQuestions"
-        }
-    ],
+    "unfinishedAssignments": [],
     "sortedFinishedAssignments": [
         {
             "duration": 768,

@@ -70,8 +70,9 @@ public class App {
             input = scanner.nextInt();
             if (input == 10) {
                 thankYouMessage();
+            } else {
+                doCorrespondingFunction(input);
             }
-            doCorrespondingFunction(input);
         }
     }
 
