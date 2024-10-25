@@ -35,3 +35,5 @@ For a simple reason: I am also a student. As a student, one of the main source o
 - I want to be able to sort the finished assignments by increasing order of time spent
 - I want to be able to **have the option** to save my lists of unfinished and finished assignments
 - I want to be able to **have the option** to reload that state from file and resume exactly where they left off at some earlier time
+
+Reference: (JsonSerializationDemo) https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git

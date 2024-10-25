@@ -1,0 +1,75 @@
+{
+    "unfinishedAssignments": [
+        {
+            "hwID": 5,
+            "name": "Webwork 1",
+            "course": "MATH 200",
+            "type": "ShortQuestions",
+            "dueDate": "2024-10-24 10:00",
+            "startTime": "2024-10-23 13:00",
+            "description": "",
+            "finishTime": "",
+            "duration": 0
+        },
+        {
+            "hwID": 6,
+            "name": "PSet1",
+            "course": "CPSC 110",
+            "type": "ShortQuestions",
+            "dueDate": "2024-10-26 22:00",
+            "startTime": "2024-10-25 20:00",
+            "description": "Rent a computer",
+            "finishTime": "",
+            "duration": 0
+        }
+    ],
+    "finishedAssignments": [
+        {
+            "hwID": 7,
+            "name": "Research Paper",
+            "course": "WRDS 150",
+            "type": "Essay",
+            "dueDate": "2024-10-28 23:59",
+            "startTime": "2024-10-27 20:00",
+            "description": "At least 2000 words",
+            "finishTime": "2024-10-27 20:10",
+            "duration": 10
+        },
+        {
+            "hwID": 8,
+            "name": "Newspaper Reading",
+            "course": "GEOG 121",
+            "type": "Readings",
+            "dueDate": "2024-10-30 23:59",
+            "startTime": "2024-10-29 01:00",
+            "description": "",
+            "finishTime": "2024-10-29 01:05",
+            "duration": 5
+        }
+    ],
+    "sortedFinishedAssignments": [
+        {
+            "hwID": 8,
+            "name": "Newspaper Reading",
+            "course": "GEOG 121",
+            "type": "Readings",
+            "dueDate": "2024-10-30 23:59",
+            "startTime": "2024-10-29 01:00",
+            "description": "",
+            "finishTime": "2024-10-29 01:05",
+            "duration": 5
+        },
+        {
+            "hwID": 7,
+            "name": "Research Paper",
+            "course": "WRDS 150",
+            "type": "Essay",
+            "dueDate": "2024-10-28 23:59",
+            "startTime": "2024-10-27 20:00",
+            "description": "At least 2000 words",
+            "finishTime": "2024-10-27 20:10",
+            "duration": 10
+        }
+    ]
+}
+

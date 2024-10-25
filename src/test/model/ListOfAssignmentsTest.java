@@ -10,14 +10,14 @@ import org.junit.Test;
 
 public class ListOfAssignmentsTest {
 
-    private ListOfAssignments testList;
+    private ListOfAsms testList;
     private ArrayList<Homework> testUnfinishedList;
     private ArrayList<Homework> testFinishedList;
     private ArrayList<Homework> testSortedFinishedList;
 
     @Before
     public void setUp() {
-        testList = new ListOfAssignments();
+        testList = new ListOfAsms();
         testUnfinishedList = testList.getUnfinishedAssignments();
         testFinishedList = testList.getFinishedAssignments();
         testSortedFinishedList = testList.getSortedFinishedAssignments();

@@ -3,7 +3,7 @@ package model;
 import java.util.*;
 
 // Represent a list of unfinished, finished and sorted finished assignments
-public class ListOfAssignments {
+public class ListOfAsms {
 
     private ArrayList<Homework> unfinishedAssignments;
     private ArrayList<Homework> finishedAssignments;
@@ -11,7 +11,7 @@ public class ListOfAssignments {
         
     // EFFECTS: Construct the list of unfinished assignments, finished assignments and sorted assignments, which is 
     //          originally empty
-    public ListOfAssignments() {
+    public ListOfAsms() {
         unfinishedAssignments = new ArrayList<Homework>();
         finishedAssignments = new ArrayList<Homework>();
         sortedFinishedAssignments = new ArrayList<Homework>();
