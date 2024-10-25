@@ -1,75 +1,74 @@
 {
     "unfinishedAssignments": [
         {
-            "hwID": 5,
+            "duration": 0,
+            "finishTime": "",
+            "dueDate": "2024-10-24 10:00",
             "name": "Webwork 1",
             "course": "MATH 200",
-            "type": "ShortQuestions",
-            "dueDate": "2024-10-24 10:00",
-            "startTime": "2024-10-23 13:00",
             "description": "",
-            "finishTime": "",
-            "duration": 0
+            "startTime": "2024-10-23 13:00",
+            "hwID": 5,
+            "type": "ShortQuestions"
         },
         {
-            "hwID": 6,
+            "duration": 0,
+            "finishTime": "",
+            "dueDate": "2024-10-26 22:00",
             "name": "PSet1",
             "course": "CPSC 110",
-            "type": "ShortQuestions",
-            "dueDate": "2024-10-26 22:00",
-            "startTime": "2024-10-25 20:00",
             "description": "Rent a computer",
-            "finishTime": "",
-            "duration": 0
-        }
-    ],
-    "finishedAssignments": [
-        {
-            "hwID": 7,
-            "name": "Research Paper",
-            "course": "WRDS 150",
-            "type": "Essay",
-            "dueDate": "2024-10-28 23:59",
-            "startTime": "2024-10-27 20:00",
-            "description": "At least 2000 words",
-            "finishTime": "2024-10-27 20:10",
-            "duration": 10
-        },
-        {
-            "hwID": 8,
-            "name": "Newspaper Reading",
-            "course": "GEOG 121",
-            "type": "Readings",
-            "dueDate": "2024-10-30 23:59",
-            "startTime": "2024-10-29 01:00",
-            "description": "",
-            "finishTime": "2024-10-29 01:05",
-            "duration": 5
+            "startTime": "2024-10-25 20:00",
+            "hwID": 6,
+            "type": "ShortQuestions"
         }
     ],
     "sortedFinishedAssignments": [
         {
-            "hwID": 8,
+            "duration": 5,
+            "finishTime": "2024-10-29 01:05",
+            "dueDate": "2024-10-30 23:59",
             "name": "Newspaper Reading",
             "course": "GEOG 121",
-            "type": "Readings",
-            "dueDate": "2024-10-30 23:59",
-            "startTime": "2024-10-29 01:00",
             "description": "",
-            "finishTime": "2024-10-29 01:05",
-            "duration": 5
+            "startTime": "2024-10-29 01:00",
+            "hwID": 8,
+            "type": "Readings"
         },
         {
-            "hwID": 7,
+            "duration": 10,
+            "finishTime": "2024-10-27 20:10",
+            "dueDate": "2024-10-28 23:59",
             "name": "Research Paper",
             "course": "WRDS 150",
-            "type": "Essay",
-            "dueDate": "2024-10-28 23:59",
-            "startTime": "2024-10-27 20:00",
             "description": "At least 2000 words",
+            "startTime": "2024-10-27 20:00",
+            "hwID": 7,
+            "type": "Essay"
+        }
+    ],
+    "finishedAssignments": [
+        {
+            "duration": 10,
             "finishTime": "2024-10-27 20:10",
-            "duration": 10
+            "dueDate": "2024-10-28 23:59",
+            "name": "Research Paper",
+            "course": "WRDS 150",
+            "description": "At least 2000 words",
+            "startTime": "2024-10-27 20:00",
+            "hwID": 7,
+            "type": "Essay"
+        },
+        {
+            "duration": 5,
+            "finishTime": "2024-10-29 01:05",
+            "dueDate": "2024-10-30 23:59",
+            "name": "Newspaper Reading",
+            "course": "GEOG 121",
+            "description": "",
+            "startTime": "2024-10-29 01:00",
+            "hwID": 8,
+            "type": "Readings"
         }
     ]
 }
-

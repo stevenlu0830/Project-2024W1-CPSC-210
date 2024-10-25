@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.junit.experimental.categories.Category;
 
 public class JsonReader {
 
@@ -72,7 +71,7 @@ public class JsonReader {
     }
 
     // MODIFIES: loa
-    // EFFECTS: parses an assignmnet from JSON object and adds it to list of assignments
+    // EFFECTS: parses an assignmnet from JSON object and adds it to list of unfinished assignments
     private void addUnfinishedAssignment(ListOfAsms loa, JSONObject jsonObject) {
         int hwID = jsonObject.getInt("hwID");
         String name = jsonObject.getString("name");
@@ -88,7 +87,7 @@ public class JsonReader {
     }
 
     // MODIFIES: loa
-    // EFFECTS: parses an assignmnet from JSON object and adds it to list of assignments
+    // EFFECTS: parses an assignmnet from JSON object and adds it to list of finished assignments
     private void addFinishedAssignment(ListOfAsms loa, JSONObject jsonObject) {
         int hwID = jsonObject.getInt("hwID");
         String name = jsonObject.getString("name");
@@ -103,6 +102,8 @@ public class JsonReader {
         loa.addFinishAssignment(hw);
     }
 
+    // MODIFIES: loa
+    // EFFECTS: parses an assignmnet from JSON object and adds it to list of sorted finished assignments
     private void addSortedFinishedAssignment(ListOfAsms loa, JSONObject jsonObject) {
         int hwID = jsonObject.getInt("hwID");
         String name = jsonObject.getString("name");

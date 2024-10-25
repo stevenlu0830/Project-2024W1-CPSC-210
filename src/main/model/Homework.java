@@ -5,9 +5,13 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 
 // Represent a homework that has id, name, course, type, dueDate, startTime, description, finishTime, duration
-public class Homework {
+public class Homework implements Writable {
 
     private int hwID;
 
@@ -116,6 +120,23 @@ public class Homework {
 
         long minutes = duration.toMinutes();
         return minutes;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        // json.put("name", name);
+        // json.put("category", category);
+        json.put("hwID", hwID);
+        json.put("name", name);
+        json.put("course", course);
+        json.put("type", type);
+        json.put("dueDate", dueDate);
+        json.put("startTime", startTime);
+        json.put("description", description);
+        json.put("finishTime", finishTime);
+        json.put("duration", duration);
+        return json;
     }
         
 }

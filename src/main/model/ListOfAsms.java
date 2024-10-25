@@ -2,8 +2,13 @@ package model;
 
 import java.util.*;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represent a list of unfinished, finished and sorted finished assignments
-public class ListOfAsms {
+public class ListOfAsms implements Writable {
 
     private ArrayList<Homework> unfinishedAssignments;
     private ArrayList<Homework> finishedAssignments;
@@ -125,6 +130,48 @@ public class ListOfAsms {
 
     public void addSortedFinishAssignment(Homework hw) {
         sortedFinishedAssignments.add(hw);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("unfinishedAssignments", UnfinishedAsmsToJson());
+        json.put("finishedAssignments", FinishedAsmsToJson());
+        json.put("sortedFinishedAssignments", SortedFinishedAsmsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray UnfinishedAsmsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Homework hw : unfinishedAssignments) {
+            jsonArray.put(hw.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray FinishedAsmsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Homework hw : finishedAssignments) {
+            jsonArray.put(hw.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray SortedFinishedAsmsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Homework hw : sortedFinishedAssignments) {
+            jsonArray.put(hw.toJson());
+        }
+
+        return jsonArray;
     }
 
 }
