@@ -72,6 +72,18 @@ public class AsmTrackingUI {
     }
 
     // MODIFIES: this
+    // EFFECTS: Set the given list of assignments
+    public void setListOfAssignments(ListOfAsms listOfAssignments) {
+        
+    }
+
+    // EFFECTS: Set the given hwId (hwId acts as a counter) 
+    public void sethwId(int hwId) {
+        
+    }
+
+
+    // MODIFIES: this
     // EFFECTS: Add unfinished assignment tab, finished assignment tab and save/load assignment tab to the sidebar
     private void addTabsToSidebar() {
         
