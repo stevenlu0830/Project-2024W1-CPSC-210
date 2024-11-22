@@ -518,7 +518,7 @@ public class UnfinishedAsmsTab extends JPanel {
                     JOptionPane.showMessageDialog(null, "Finish date shouldn't be earlier than start date!", "Early Finish Date", JOptionPane.WARNING_MESSAGE);
                 } else {
                     getController().getListOfAsms().moveToFinished(enteredID, finishDate);
-                    JOptionPane.showMessageDialog(null, "Due date edited!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Well done! You have finished an assignment!", "Success", JOptionPane.INFORMATION_MESSAGE);
     
                     frame.dispose();
                 }

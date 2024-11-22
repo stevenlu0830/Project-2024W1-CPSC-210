@@ -1,25 +1,83 @@
 {
-    "unfinishedAssignments": [],
-    "sortedFinishedAssignments": [{
-        "duration": 13136,
-        "finishTime": "2021-12-21 00:56",
-        "dueDate": "2021-11-15 21:12",
-        "name": "Webwork",
-        "course": "math",
-        "description": "easy",
-        "startTime": "2021-12-11 22:00",
-        "hwID": 1,
+    "unfinishedAssignments": [{
+        "duration": 0,
+        "finishTime": "",
+        "dueDate": "2024-11-22 22:00",
+        "name": "PSet1",
+        "course": "CPSC 110",
+        "description": "Rent a computer",
+        "startTime": "2024-10-25 20:00",
+        "hwID": 4,
         "type": "ShortQuestions"
     }],
-    "finishedAssignments": [{
-        "duration": 13136,
-        "finishTime": "2021-12-21 00:56",
-        "dueDate": "2021-11-15 21:12",
-        "name": "Webwork",
-        "course": "math",
-        "description": "easy",
-        "startTime": "2021-12-11 22:00",
-        "hwID": 1,
-        "type": "ShortQuestions"
-    }]
+    "sortedFinishedAssignments": [
+        {
+            "duration": 5,
+            "finishTime": "2024-10-29 01:05",
+            "dueDate": "2024-10-30 23:59",
+            "name": "Newspaper Reading",
+            "course": "GEOG 121",
+            "description": "",
+            "startTime": "2024-10-29 01:00",
+            "hwID": 2,
+            "type": "Readings"
+        },
+        {
+            "duration": 5,
+            "finishTime": "2024-11-22 11:16",
+            "dueDate": "2024-11-22 23:59",
+            "name": "Cooking Sushi",
+            "course": "Cook",
+            "description": "Ask TAs",
+            "startTime": "2024-11-22 11:11",
+            "hwID": 5,
+            "type": "Others"
+        },
+        {
+            "duration": 10,
+            "finishTime": "2024-10-27 20:10",
+            "dueDate": "2024-10-28 23:59",
+            "name": "Research Paper",
+            "course": "WRDS 150",
+            "description": "At least 2000 words",
+            "startTime": "2024-10-27 20:00",
+            "hwID": 1,
+            "type": "Essay"
+        }
+    ],
+    "finishedAssignments": [
+        {
+            "duration": 10,
+            "finishTime": "2024-10-27 20:10",
+            "dueDate": "2024-10-28 23:59",
+            "name": "Research Paper",
+            "course": "WRDS 150",
+            "description": "At least 2000 words",
+            "startTime": "2024-10-27 20:00",
+            "hwID": 1,
+            "type": "Essay"
+        },
+        {
+            "duration": 5,
+            "finishTime": "2024-10-29 01:05",
+            "dueDate": "2024-10-30 23:59",
+            "name": "Newspaper Reading",
+            "course": "GEOG 121",
+            "description": "",
+            "startTime": "2024-10-29 01:00",
+            "hwID": 2,
+            "type": "Readings"
+        },
+        {
+            "duration": 5,
+            "finishTime": "2024-11-22 11:16",
+            "dueDate": "2024-11-22 23:59",
+            "name": "Cooking Sushi",
+            "course": "Cook",
+            "description": "Ask TAs",
+            "startTime": "2024-11-22 11:11",
+            "hwID": 5,
+            "type": "Others"
+        }
+    ]
 }
