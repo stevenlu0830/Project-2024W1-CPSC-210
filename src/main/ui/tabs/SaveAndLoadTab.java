@@ -86,7 +86,8 @@ public class SaveAndLoadTab extends JPanel {
             try {
                 ListOfAsms listOfAssignments = getController().getJsonReader().read();
                 getController().setListOfAssignments(listOfAssignments);
-                int hwIdStart = 1 + listOfAssignments.viewNumberFinishedAssignments() + listOfAssignments.viewNumberUnfinishedAssignments();
+                int hwIdStart = 1 + listOfAssignments.viewNumberFinishedAssignments() 
+                        + listOfAssignments.viewNumberUnfinishedAssignments();
                 getController().sethwId(hwIdStart);
                 JOptionPane.showMessageDialog(null, "Assignments have loaded to the program!", "Success",
                         JOptionPane.INFORMATION_MESSAGE);

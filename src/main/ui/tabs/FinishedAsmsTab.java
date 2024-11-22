@@ -62,7 +62,8 @@ public class FinishedAsmsTab extends JPanel {
         String list = "";
 
         if (unfinishedAssignments.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "You don't have finished assignments!", "Null List", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You don't have finished assignments!", "Null List", 
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             for (Homework h : unfinishedAssignments) {
                 list = list + "ID: " + h.getID() + "\n" 
@@ -108,9 +109,11 @@ public class FinishedAsmsTab extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 int number = getController().getListOfAsms().viewNumberFinishedAssignments();
                 if (number == 1) {
-                    JOptionPane.showMessageDialog(null, "You have " + number + " finished assignment!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You have " + number + " finished assignment!", 
+                            "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "You have " + number + " finished assignments!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You have " + number + " finished assignments!", 
+                            "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -134,7 +137,8 @@ public class FinishedAsmsTab extends JPanel {
         String list = "";
 
         if (getController().getListOfAsms().getFinishedAssignments().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "You don't have finished assignments!", "Null List", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You don't have finished assignments!", "Null List", 
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             getController().getListOfAsms().sortFinishedAssignments();
 
@@ -151,7 +155,8 @@ public class FinishedAsmsTab extends JPanel {
                         + "Finish Time: " + h.getFinishTime() + "\n" 
                         + "Duration: " + h.getDuration() + "\n\n";
             }
-            JOptionPane.showMessageDialog(null, "Assignments have sorted in increasing order of duration!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Assignments have sorted in increasing order of duration!", 
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
 
         }
 

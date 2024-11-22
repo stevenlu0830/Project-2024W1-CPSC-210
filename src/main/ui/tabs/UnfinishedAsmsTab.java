@@ -75,7 +75,8 @@ public class UnfinishedAsmsTab extends JPanel {
         String list = "";
 
         if (unfinishedAssignments.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "You don't have unfinished assignments!", "Null List", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You don't have unfinished assignments!", "Null List", 
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             for (Homework h : unfinishedAssignments) {
                 list = list + "ID: " + h.getID() + "\n" 
@@ -125,7 +126,8 @@ public class UnfinishedAsmsTab extends JPanel {
     }
 
     // MODIFIES: AsmTrackingUI, ListOfAsms
-    // EFFECTS: Create a new frame that allow us to enter the information and add the assignment to unfinished assignments list
+    // EFFECTS: Create a new frame that allow us to enter the information and add the assignment to unfinished 
+    //          assignments list
     protected void addOneAssignmentNewFrame() {
         JFrame inputFrame = new JFrame("Add an assignment");
         inputFrame.setSize(600, 800);
@@ -164,9 +166,11 @@ public class UnfinishedAsmsTab extends JPanel {
                 String startDate = startDateField.getText();
 
                 if (!isValidTime(dueDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else if (!isValidTime(startDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Start Time", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Start Time", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     int hwId = getController().getCurrentID();
                     String name = nameField.getText();
@@ -177,7 +181,8 @@ public class UnfinishedAsmsTab extends JPanel {
                     Homework hw = new Homework(hwId, name, course, type, dueDate, startDate, description, "", 0);
                     getController().idIncrementByOne();
                     getController().getListOfAsms().addAssignment(hw);
-                    JOptionPane.showMessageDialog(null, "Assignment added!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment added!", "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
     
                     inputFrame.dispose();
                 }
@@ -258,7 +263,8 @@ public class UnfinishedAsmsTab extends JPanel {
     protected void checkNullAsmsBeforeEdit() {
         ArrayList<Homework> unfinishedAssignments = getController().getListOfAsms().getUnfinishedAssignments();
         if (unfinishedAssignments.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No unfinished assignments to edit", "Null List", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No unfinished assignments to edit", "Null List", 
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             chooseWhichPartNewFrame();
         }
@@ -333,9 +339,11 @@ public class UnfinishedAsmsTab extends JPanel {
                 
 
                 if (!isValidTime(dueDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
-                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     getController().getListOfAsms().editDueDate(enteredID, dueDate);
                     JOptionPane.showMessageDialog(null, "Due date edited!", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -381,10 +389,12 @@ public class UnfinishedAsmsTab extends JPanel {
                 String description = textArea.getText();
                 
                 if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
-                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     getController().getListOfAsms().editDescription(enteredID, description);
-                    JOptionPane.showMessageDialog(null, "Description edited!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Description edited!", "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
     
                     newFrame.dispose();
                 }
@@ -408,7 +418,8 @@ public class UnfinishedAsmsTab extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (getController().getListOfAsms().getUnfinishedAssignments().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No unfinished assignments to remove", "Null List", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "No unfinished assignments to remove", "Null List", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     removeAssignmentWindow();
                 }
@@ -436,10 +447,12 @@ public class UnfinishedAsmsTab extends JPanel {
                 int enteredID = Integer.parseInt(idField.getText());
                 
                 if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
-                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     getController().getListOfAsms().removeAssignment(enteredID);
-                    JOptionPane.showMessageDialog(null, "Assignment deleted!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment deleted!", "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
     
                     frame.dispose();
                 }
@@ -462,9 +475,11 @@ public class UnfinishedAsmsTab extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 int number = getController().getListOfAsms().viewNumberUnfinishedAssignments();
                 if (number == 1) {
-                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignment!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignment!", 
+                            "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignments!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignments!", 
+                            "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -478,7 +493,8 @@ public class UnfinishedAsmsTab extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (getController().getListOfAsms().getUnfinishedAssignments().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "You have no unfinished assignments!", "Null List", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "You have no unfinished assignments!", "Null List", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else {
                     moveAssignmentWindow();
                 }
@@ -511,14 +527,19 @@ public class UnfinishedAsmsTab extends JPanel {
                 
 
                 if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
-                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", 
+                            JOptionPane.WARNING_MESSAGE);
                 } else if (!isValidTime(finishDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", JOptionPane.WARNING_MESSAGE);
-                } else if (finishDateIsEarly(getController().getListOfAsms().getHWbyID(enteredID).getStartTime(), finishDate)) {
-                    JOptionPane.showMessageDialog(null, "Finish date shouldn't be earlier than start date!", "Early Finish Date", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", 
+                            JOptionPane.WARNING_MESSAGE);
+                } else if (finishDateIsEarly(getController().getListOfAsms().getHWbyID(enteredID).getStartTime(), 
+                        finishDate)) {
+                    JOptionPane.showMessageDialog(null, "Finish date shouldn't be earlier than start date!", 
+                            "Early Finish Date", JOptionPane.WARNING_MESSAGE);
                 } else {
                     getController().getListOfAsms().moveToFinished(enteredID, finishDate);
-                    JOptionPane.showMessageDialog(null, "Well done! You have finished an assignment!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Well done! You have finished an assignment!", 
+                            "Success", JOptionPane.INFORMATION_MESSAGE);
     
                     frame.dispose();
                 }
