@@ -1,51 +1,25 @@
 {
     "unfinishedAssignments": [],
-    "sortedFinishedAssignments": [
-        {
-            "duration": 768,
-            "finishTime": "1111-11-11 23:59",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name4",
-            "course": "course4",
-            "description": "no4",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 4,
-            "type": "ExtraPractices"
-        },
-        {
-            "duration": 1980,
-            "finishTime": "1111-11-12 20:11",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name3",
-            "course": "course3",
-            "description": "no3",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 3,
-            "type": "Essay"
-        }
-    ],
-    "finishedAssignments": [
-        {
-            "duration": 1980,
-            "finishTime": "1111-11-12 20:11",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name3",
-            "course": "course3",
-            "description": "no3",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 3,
-            "type": "Essay"
-        },
-        {
-            "duration": 768,
-            "finishTime": "1111-11-11 23:59",
-            "dueDate": "1111-11-11 11:11",
-            "name": "name4",
-            "course": "course4",
-            "description": "no4",
-            "startTime": "1111-11-11 11:11",
-            "hwID": 4,
-            "type": "ExtraPractices"
-        }
-    ]
+    "sortedFinishedAssignments": [{
+        "duration": 13136,
+        "finishTime": "2021-12-21 00:56",
+        "dueDate": "2021-11-15 21:12",
+        "name": "Webwork",
+        "course": "math",
+        "description": "easy",
+        "startTime": "2021-12-11 22:00",
+        "hwID": 1,
+        "type": "ShortQuestions"
+    }],
+    "finishedAssignments": [{
+        "duration": 13136,
+        "finishTime": "2021-12-21 00:56",
+        "dueDate": "2021-11-15 21:12",
+        "name": "Webwork",
+        "course": "math",
+        "description": "easy",
+        "startTime": "2021-12-11 22:00",
+        "hwID": 1,
+        "type": "ShortQuestions"
+    }]
 }
