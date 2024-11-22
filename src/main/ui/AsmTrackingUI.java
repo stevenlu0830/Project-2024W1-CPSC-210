@@ -1,13 +1,17 @@
 package ui;
 
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import model.ListOfAsms;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+
+import model.ListOfAsms;
+import ui.tabs.FinishedAsmsTab;
+import ui.tabs.SaveAndLoadTab;
+import ui.tabs.UnfinishedAsmsTab;
 
 
 // Represents the central controller of GUI Assignment Tracking Application 
@@ -16,9 +20,9 @@ public class AsmTrackingUI {
     private static final String JSON_STORE = "./data/listOfAssignments.json";
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 750;
-    
-    
-    
+    private static final ImageIcon CROSS_ICON = new ImageIcon("./src/images/cross.png");
+    private static final ImageIcon TICK_ICON = new ImageIcon("./src/images/tick.png");
+    private static final ImageIcon DL_OR_UL_ICON = new ImageIcon("./src/images/dlul.png");
 
     private JFrame frame;
     private JTabbedPane sidebar;
@@ -74,23 +78,27 @@ public class AsmTrackingUI {
     // MODIFIES: this
     // EFFECTS: Set the given list of assignments
     public void setListOfAssignments(ListOfAsms listOfAssignments) {
-        
+        this.listOfAssignments = listOfAssignments;
     }
 
     // EFFECTS: Set the given hwId (hwId acts as a counter) 
     public void sethwId(int hwId) {
-        
+        this.hwId = hwId;
     }
-
 
     // MODIFIES: this
     // EFFECTS: Add unfinished assignment tab, finished assignment tab and save/load assignment tab to the sidebar
     private void addTabsToSidebar() {
-        
+        JPanel unfAsmTab = new UnfinishedAsmsTab(this);
+        JPanel finAsmTab = new FinishedAsmsTab(this);
+        JPanel saveAndLoadTab = new SaveAndLoadTab(this);
+
+        sidebar.addTab("Unfinished Assignments", CROSS_ICON, unfAsmTab, "Unfinished Assignments");
+        sidebar.addTab("Finished Assignments", TICK_ICON, finAsmTab, "Finished Assignments");
+        sidebar.addTab("Save/Load Assignments", DL_OR_UL_ICON, saveAndLoadTab, "Save/Load Assignments");
     }
 
     
-
 
 
 }
