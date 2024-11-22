@@ -1,16 +1,11 @@
 package ui.tabs;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import model.ListOfAsms;
 
 import java.awt.*;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
