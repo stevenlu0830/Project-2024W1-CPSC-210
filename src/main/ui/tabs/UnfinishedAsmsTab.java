@@ -69,7 +69,7 @@ public class UnfinishedAsmsTab extends JPanel {
     }
     
     // MODIFIES: this
-    // EFFECTS: Load the list unfinished assignments and view on a textbox
+    // EFFECTS: Load the list unfinished assignments and view on the textbox
     protected void viewAssignments() {
         ArrayList<Homework> unfinishedAssignments = getController().getListOfAsms().getUnfinishedAssignments();
         String list = "";
