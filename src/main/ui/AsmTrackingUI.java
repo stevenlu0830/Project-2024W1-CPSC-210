@@ -59,7 +59,7 @@ public class AsmTrackingUI {
     }
 
     // Getters
-    public ListOfAsms getListOfAssignments() {
+    public ListOfAsms getListOfAsms() {
         return listOfAssignments;
     }
 
