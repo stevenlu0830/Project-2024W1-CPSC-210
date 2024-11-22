@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
 
 import ui.AsmTrackingUI;
 
@@ -298,9 +298,9 @@ public class UnfinishedAsmsTab extends JPanel {
                 frame.dispose();
 
                 if (option == 1) {
-                    dueDateWindow();
+                    dueDateNewFrame();
                 } else if (option == 2) {
-                    descriptionWindow();
+                    descriptionNewFrame();
                 }
             }
         });
@@ -310,7 +310,7 @@ public class UnfinishedAsmsTab extends JPanel {
 
     // MODIFIES: ListOfAsms
     // EFFECTS: Create a new frame that allows users to edit the due date of the particular assignment
-    protected void dueDateWindow() {
+    protected void dueDateNewFrame() {
         JFrame newFrame = new JFrame("Edit Due Date");
         newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         newFrame.setSize(600, 200);
@@ -356,7 +356,7 @@ public class UnfinishedAsmsTab extends JPanel {
 
     // MODIFIES: ListOfAsms
     // EFFECTS: Create a new frame that allows users to edit the description of the particular assignment
-    protected void descriptionWindow() {
+    protected void descriptionNewFrame() {
         JFrame newFrame = new JFrame("Edit Description");
         newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         newFrame.setSize(600, 300);
@@ -403,20 +403,147 @@ public class UnfinishedAsmsTab extends JPanel {
     // MODIFIES: this
     // EFFECTS: Add and place a button that remove an unfinished assignment
     private void addAndPlaceRemoveAssignmentButton() {
+        removeAssignmentButton = new JButton("Remove an Assignment");
+        removeAssignmentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getController().getListOfAsms().getUnfinishedAssignments().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No unfinished assignments to remove", "Null List", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    removeAssignmentWindow();
+                }
+            }
+        });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Create a new frame that allows users to remove a particular assignment
+    protected void removeAssignmentWindow() {
+        JFrame frame = new JFrame("Remove an assignment");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        frame.setSize(600, 100);
+        frame.setLayout(new GridLayout(2,2));
+
+        JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
+        JTextField idField = new JTextField();
+
+        JButton submitButton = new JButton("Remove the Assignment");
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int enteredID = Integer.parseInt(idField.getText());
+                
+                if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    getController().getListOfAsms().removeAssignment(enteredID);
+                    JOptionPane.showMessageDialog(null, "Assignment deleted!", "Success", JOptionPane.INFORMATION_MESSAGE);
+    
+                    frame.dispose();
+                }
+            }
+        });
+
+        frame.add(idLabel);
+        frame.add(idField);
+        frame.add(submitButton);
         
+        frame.setVisible(true);
     }
 
     // MODIFIES: this
     // EFFECTS: Add and place a button that views the number of unfinished assignments
     private void addAndPlaceViewNumberOfAssignmentButton() {
-        
+        viewNumberOfAssignmentButton = new JButton("View Number of Assignments");
+        viewNumberOfAssignmentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int number = getController().getListOfAsms().viewNumberUnfinishedAssignments();
+                if (number == 1) {
+                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignment!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "You have " + number + " unfinished assignments!", "Number of Unfinished Assignments", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
     }
 
     // MODIFIES: this
     // EFFECTS: Add and place a button that move an assignment to finished assignment list
     private void addAndPlaceMoveAssignmentButton() {
-        
+        moveAssignmentButton = new JButton("Finish an Assignment");
+        moveAssignmentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (getController().getListOfAsms().getUnfinishedAssignments().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "You have no unfinished assignments!", "Null List", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    moveAssignmentWindow();
+                }
+            }
+        });
     }
 
+    // MODIFIES: ListOfAsms
+    // EFFECTS: Create a new frame that allows users to finish a particular assignment
+    protected void moveAssignmentWindow() {
+        JFrame frame = new JFrame("Finish an assignment");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        frame.setSize(600, 250);
+        frame.setLayout(new GridLayout(3,2));
+
+        JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
+        JTextField id2Field = new JTextField();
+
+        JLabel finishDateLabel = new JLabel("Finish Date and Time (yyyy-mm-dd hh:mm):");
+        JTextField finishDateField = new JTextField();
+
+        JButton submitButton = new JButton("Finish the Assignment");
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int enteredID = Integer.parseInt(id2Field.getText());
+                String finishDate = finishDateField.getText();
+                
+
+                if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
+                    JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", JOptionPane.WARNING_MESSAGE);
+                } else if (!isValidTime(finishDate)) {
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", JOptionPane.WARNING_MESSAGE);
+                } else if (finishDateIsEarly(getController().getListOfAsms().getHWbyID(enteredID).getStartTime(), finishDate)) {
+                    JOptionPane.showMessageDialog(null, "Finish date shouldn't be earlier than start date!", "Early Finish Date", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    getController().getListOfAsms().moveToFinished(enteredID, finishDate);
+                    JOptionPane.showMessageDialog(null, "Due date edited!", "Success", JOptionPane.INFORMATION_MESSAGE);
     
+                    frame.dispose();
+                }
+            }
+        });
+
+        frame.add(idLabel);
+        frame.add(id2Field);
+        frame.add(finishDateLabel);
+        frame.add(finishDateField);
+        frame.add(submitButton);
+        
+        frame.setVisible(true);
+    }
+
+    // EFFECTS: Return true when the finish date is earlier than the start date
+    protected boolean finishDateIsEarly(String startDate, String finishDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+            Date parsedDate1 = sdf.parse(finishDate);
+            Date parsedDate2 = sdf.parse(startDate);
+            
+            return parsedDate1.before(parsedDate2);
+        } catch (ParseException e) {
+            return false;
+        }
+    }
 }

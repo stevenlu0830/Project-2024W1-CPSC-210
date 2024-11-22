@@ -1,6 +1,9 @@
 package ui.tabs;
 
-public class FinishedAsmsTab {
+import javax.swing.JPanel;
+
+public class FinishedAsmsTab extends JPanel {
 
     
+
 }
