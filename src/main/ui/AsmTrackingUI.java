@@ -63,7 +63,7 @@ public class AsmTrackingUI {
         return listOfAssignments;
     }
 
-    public int getHwId() {
+    public int getCurrentID() {
         return hwId;
     }
 
@@ -98,9 +98,10 @@ public class AsmTrackingUI {
         sidebar.addTab("Save/Load Assignments", DL_OR_UL_ICON, saveAndLoadTab, "Save/Load Assignments");
     }
 
-    
-
-
+    // EFFECTS: Increase the hwId counter by one because a new unfinished assignment is created
+    public void idIncrementByOne() {
+        hwId = hwId + 1;
+    }
 }
 
 
