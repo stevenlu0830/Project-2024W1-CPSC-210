@@ -125,7 +125,6 @@ public class UnfinishedAsmsTab extends JPanel {
         });
     }
 
-    // MODIFIES: AsmTrackingUI, ListOfAsms
     // EFFECTS: Create a new frame that allow us to enter the information and add the assignment to unfinished 
     //          assignments list
     protected void addOneAssignmentNewFrame() {
@@ -152,12 +151,27 @@ public class UnfinishedAsmsTab extends JPanel {
 
         JLabel descriptionLabel = new JLabel("Description (Optional):");
         JTextArea textArea = new JTextArea(5, 30); 
-        textArea.setWrapStyleWord(true);  
-        textArea.setLineWrap(true);       
+        textAreaSetUp(textArea);       
         JScrollPane scrollPane = new JScrollPane(textArea);
 
         JButton submitButton = new JButton("Add the assignment");
 
+        addAsm(inputFrame, nameField, courseField, comboBox, dueDateField, startDateField, textArea, submitButton);
+
+        setLayoutAndAdd(inputFrame, nameLabel, nameField, courseLabel, courseField, typeLabel, comboBox, dueDateLabel,
+                dueDateField, startDateLabel, startDateField, descriptionLabel, scrollPane, submitButton);
+    }
+
+    // EFFECTS: Sets up the text area in the add-assignment frame
+    private void textAreaSetUp(JTextArea textArea) {
+        textArea.setWrapStyleWord(true);  
+        textArea.setLineWrap(true);
+    }
+
+    // MODIFIES: AsmTrackingUI, ListOfAsms
+    // EFFECTS: Do the action (adding an assignment) as the button is pressed 
+    private void addAsm(JFrame inputFrame, JTextField nameField, JTextField courseField, JComboBox<String> comboBox,
+            JTextField dueDateField, JTextField startDateField, JTextArea textArea, JButton submitButton) {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -165,11 +179,8 @@ public class UnfinishedAsmsTab extends JPanel {
                 String dueDate = dueDateField.getText();
                 String startDate = startDateField.getText();
 
-                if (!isValidTime(dueDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", 
-                            JOptionPane.WARNING_MESSAGE);
-                } else if (!isValidTime(startDate)) {
-                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Start Time", 
+                if (!isValidTime(dueDate) || !isValidTime(startDate)) {
+                    JOptionPane.showMessageDialog(null, "Invalid date format!", "Date Format Issue", 
                             JOptionPane.WARNING_MESSAGE);
                 } else {
                     int hwId = getController().getCurrentID();
@@ -188,7 +199,13 @@ public class UnfinishedAsmsTab extends JPanel {
                 }
             }
         });
+    }
 
+    // MODIFIES: Sets the layout and add labels and fields to the add-assignment frame
+    private void setLayoutAndAdd(JFrame inputFrame, JLabel nameLabel, JTextField nameField, JLabel courseLabel,
+            JTextField courseField, JLabel typeLabel, JComboBox<String> comboBox, JLabel dueDateLabel,
+            JTextField dueDateField, JLabel startDateLabel, JTextField startDateField, JLabel descriptionLabel,
+            JScrollPane scrollPane, JButton submitButton) {
         inputFrame.setLayout(new GridLayout(7,2));
         inputFrame.add(nameLabel);
         inputFrame.add(nameField);
@@ -206,6 +223,8 @@ public class UnfinishedAsmsTab extends JPanel {
 
         inputFrame.setVisible(true);
     }
+
+    
 
     // EFFECTS: Determine whether the date format is valid
     protected boolean isValidTime(String time) {
@@ -292,6 +311,13 @@ public class UnfinishedAsmsTab extends JPanel {
         JButton saveButton = new JButton("Edit");
         frame.add(saveButton);
 
+        decideFrame(frame, option1, option2, saveButton);
+
+        frame.setVisible(true);
+    }
+
+    // EFFECTS: Determine which frame to be displayed based on the option selected
+    private void decideFrame(JFrame frame, JRadioButton option1, JRadioButton option2, JButton saveButton) {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -310,11 +336,8 @@ public class UnfinishedAsmsTab extends JPanel {
                 }
             }
         });
-
-        frame.setVisible(true);
     }
 
-    // MODIFIES: ListOfAsms
     // EFFECTS: Create a new frame that allows users to edit the due date of the particular assignment
     protected void dueDateNewFrame() {
         JFrame newFrame = new JFrame("Edit Due Date");
@@ -330,6 +353,16 @@ public class UnfinishedAsmsTab extends JPanel {
 
         JButton submitButton = new JButton("Edit Due Date");
 
+        editDueDate(newFrame, idField, dueDateField, submitButton);
+
+        newFrame.add(idLabel);
+        newFrame.add(idField);
+        frameAddElements(newFrame, dueDateLabel, dueDateField, submitButton);
+    }
+
+    // MODIFIES: ListOfAsms
+    // EFFECTS: Do the action (edit due date) as the button is pressed
+    private void editDueDate(JFrame newFrame, JTextField idField, JTextField dueDateField, JButton submitButton) {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -337,7 +370,6 @@ public class UnfinishedAsmsTab extends JPanel {
                 int enteredID = Integer.parseInt(idField.getText());
                 String dueDate = dueDateField.getText();
                 
-
                 if (!isValidTime(dueDate)) {
                     JOptionPane.showMessageDialog(null, "Invalid date format!", "Due Date", 
                             JOptionPane.WARNING_MESSAGE);
@@ -352,17 +384,8 @@ public class UnfinishedAsmsTab extends JPanel {
                 }
             }
         });
-
-        newFrame.add(idLabel);
-        newFrame.add(idField);
-        newFrame.add(dueDateLabel);
-        newFrame.add(dueDateField);
-        newFrame.add(submitButton);
-        
-        newFrame.setVisible(true);
     }
 
-    // MODIFIES: ListOfAsms
     // EFFECTS: Create a new frame that allows users to edit the description of the particular assignment
     protected void descriptionNewFrame() {
         JFrame newFrame = new JFrame("Edit Description");
@@ -375,12 +398,25 @@ public class UnfinishedAsmsTab extends JPanel {
 
         JLabel descriptionLabel = new JLabel("New Description:");
         JTextArea textArea = new JTextArea(5, 30); 
-        textArea.setWrapStyleWord(true);  
-        textArea.setLineWrap(true);       
+        textAreaSetUp(textArea);       
         JScrollPane scrollPane = new JScrollPane(textArea);
 
         JButton submitButton = new JButton("Edit Description");
 
+        editDescription(newFrame, idField, textArea, submitButton);
+
+        newFrame.add(idLabel);
+        newFrame.add(idField);
+        newFrame.add(descriptionLabel);
+        newFrame.add(scrollPane);
+        newFrame.add(submitButton);
+        
+        newFrame.setVisible(true);
+    }
+
+    // MODIFIES: ListOfAsms
+    // EFFECTS: Do the action (edit description) as the button is pressed
+    private void editDescription(JFrame newFrame, JTextField idField, JTextArea textArea, JButton submitButton) {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -400,14 +436,6 @@ public class UnfinishedAsmsTab extends JPanel {
                 }
             }
         });
-
-        newFrame.add(idLabel);
-        newFrame.add(idField);
-        newFrame.add(descriptionLabel);
-        newFrame.add(scrollPane);
-        newFrame.add(submitButton);
-        
-        newFrame.setVisible(true);
     }
 
     // MODIFIES: this
@@ -459,6 +487,11 @@ public class UnfinishedAsmsTab extends JPanel {
             }
         });
 
+        frameAddElements(frame, idLabel, idField, submitButton);
+    }
+
+    // EFFECTS: Add the frame, label and the button to the frame
+    private void frameAddElements(JFrame frame, JLabel idLabel, JTextField idField, JButton submitButton) {
         frame.add(idLabel);
         frame.add(idField);
         frame.add(submitButton);
@@ -502,7 +535,6 @@ public class UnfinishedAsmsTab extends JPanel {
         });
     }
 
-    // MODIFIES: ListOfAsms
     // EFFECTS: Create a new frame that allows users to finish a particular assignment
     protected void moveAssignmentWindow() {
         JFrame frame = new JFrame("Finish an assignment");
@@ -518,6 +550,16 @@ public class UnfinishedAsmsTab extends JPanel {
 
         JButton submitButton = new JButton("Finish the Assignment");
 
+        finishAsm(frame, id2Field, finishDateField, submitButton);
+
+        frame.add(idLabel);
+        frame.add(id2Field);
+        frameAddElements(frame, finishDateLabel, finishDateField, submitButton);
+    }
+
+    // MODIFIES: ListOfAsms
+    // EFFECTS: Do the action (finish assignment) as the button is pressed
+    private void finishAsm(JFrame frame, JTextField id2Field, JTextField finishDateField, JButton submitButton) {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -545,14 +587,6 @@ public class UnfinishedAsmsTab extends JPanel {
                 }
             }
         });
-
-        frame.add(idLabel);
-        frame.add(id2Field);
-        frame.add(finishDateLabel);
-        frame.add(finishDateField);
-        frame.add(submitButton);
-        
-        frame.setVisible(true);
     }
 
     // EFFECTS: Return true when the finish date is earlier than the start date
