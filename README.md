@@ -1,4 +1,4 @@
-# Steven Lu - 2024W1 CPSC-210 Project: Assignment Tracking App 
+# Project-i0s8o - 2024W1 CPSC-210 Project: Assignment Tracking App 
 
 ## What will the application do?
 
