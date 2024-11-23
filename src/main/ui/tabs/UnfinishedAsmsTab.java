@@ -201,7 +201,7 @@ public class UnfinishedAsmsTab extends JPanel {
         });
     }
 
-    // MODIFIES: Sets the layout and add labels and fields to the add-assignment frame
+    // EFFECTS: Sets the layout and add labels and fields to the add-assignment frame
     private void setLayoutAndAdd(JFrame inputFrame, JLabel nameLabel, JTextField nameField, JLabel courseLabel,
             JTextField courseField, JLabel typeLabel, JComboBox<String> comboBox, JLabel dueDateLabel,
             JTextField dueDateField, JLabel startDateLabel, JTextField startDateField, JLabel descriptionLabel,
