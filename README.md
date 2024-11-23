@@ -26,14 +26,34 @@ For a simple reason: I am also a student. As a student, one of the main source o
 
 ## User Stories
 
+Unfinished Assignments:
 - I want to be able to add an assignment to a list of unfinished assignments and specify the above information
-- I want to be able to view the list of unfinished and finished assignments
 - I want to be able to edit the information (just the due date and description) of the assignment
 - I want to be able to remove an assignment from a list of unfinished assignments and a list of finished assignments
-- I want to be able to view the number of finished and unfinished assignments
 - I want to be able to move an assignment from unfinished assignment list to finished assignment list
-- I want to be able to sort the finished assignments by increasing order of time spent
-- I want to be able to **have the option** to save my lists of unfinished and finished assignments
-- I want to be able to **have the option** to reload that state from file and resume exactly where they left off at some earlier time
 
-Reference: (JsonSerializationDemo) https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+Finished Assignments:
+- I want to be able to sort the finished assignments by increasing order of time spent
+
+Both Unfinished and Finished Assignments:
+- I want to be able to view the list of unfinished and finished assignments
+- I want to be able to view the number of finished and unfinished assignments
+
+Save and Load Assignments:
+- I want to be able to have the option to save my lists of unfinished and finished assignments
+- I want to be able to have the option to reload that state from file and resume exactly where they left off at some earlier time
+
+Visualisation:
+- I want to be able to add images to every button in the sidebar, to the save assignment button and the load assignment button
+
+Read and write JSON - Code Reference: (JsonSerializationDemo) https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
+# Instructions for End User
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by adding a new assignment to the list of unfinished assignments. To do this, click "Unfinished Assignments" button on the sidebar. Click "Add Assignment" button at the bottom of the panel. A new window will be popped out for you to enter the information of the new assignment. Unless specified optional, all information must be entered. After entering information, click "Add the Assignment" button below to add the assignment. 
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by adding one of the unfinished assignments to the list of finished assignments. To do this, make sure you have at least one unfinished assignment. Click "Unfinished Assignments" button on the sidebar. Click "Finish an Assignment" button at the bottom of the panel. A new window will be popped out for you to enter the additional information of the unfinished assignment you specified. After entering all information, click "Finish the Assignment" button below to finish the assignment.
+- You can edit the due date of an assignment. To do this, make sure you have at least one unfinished assignment. Click "Unfinished Assignments" button on the sidebar. Click "Edit Assignment Information" button at the bottom of the panel. A new window will be popped out for you to choose which kind of information to edit. Select "Due Date" and then click "Edit" button besides. A new window will be popped out for you to enter the new due date of the unfinished assignment you specified. After entering all information, click "Edit Due Date" button below to edit the due date of the assignment.
+- You can remove an assignment. To do this, make sure you have at least one unfinished assignment. Click "Unfinished Assignments" button on the sidebar. Click "Remove an Assignment" button at the bottom of the panel. A new window will be popped out for you to specify the unfinished assignment. After entering the information, click "Remove the Assignment" button below to finish the assignment.
+- You can locate my visual component by seeing the images on the buttons on the sidebar, on the save assignment button and the load assignment button. They are png images that are stored on the "images" package under "src" package.
+- You can save the state of my application by first clicking the "Save/Load Assignments" button on the sidebar. Click "Save to Computer" button on the panel to save the state of my application.
+- You can reload the state of my application by first clicking the "Save/Load Assignments" button on the sidebar. Click "Load from Computer" button on the panel to reload the state of my application.
