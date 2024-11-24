@@ -2,12 +2,14 @@ package ui.tabs;
 
 import javax.swing.*;
 
+import model.Homework;
 import model.ListOfAsms;
 
 import java.awt.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.*;
 
 import ui.AsmTrackingUI;
 
@@ -55,9 +57,7 @@ public class SaveAndLoadTab extends JPanel {
     //          If the file is not found, catch FileNotFoundException
     private void addAndPlaceSaveButton() {
         saveButton = new JButton("Save to Computer", new ImageIcon("./src/images/ul.png"));
-        saveButton.setFont(new Font("Arial", Font.PLAIN, 25));
-        saveButton.setPreferredSize(new Dimension(500, 200));
-        saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveButtonSetUp();
 
         saveButton.addActionListener(e -> {
             try {
@@ -72,22 +72,26 @@ public class SaveAndLoadTab extends JPanel {
         });
     }
 
+    // EFFECTS: Sets up a save button
+    private void saveButtonSetUp() {
+        saveButton.setFont(new Font("Arial", Font.PLAIN, 25));
+        saveButton.setPreferredSize(new Dimension(500, 200));
+        saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+
     // MODIFIES: this, AsmTrackingUI
     // EFFECTS: Add and place the load button to the panel
     //          If the button is pressed, loads all information about list of assignments to the computer program
     //          If the file is not found, catch FileNotFoundException
     private void placeLoadButton() {
         loadButton = new JButton("Load from Computer", new ImageIcon("./src/images/dl.png"));
-        loadButton.setFont(new Font("Arial", Font.PLAIN, 25));
-        loadButton.setPreferredSize(new Dimension(500, 200));
-        loadButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loadButtonSetUp();
 
         loadButton.addActionListener(e -> {
             try {
                 ListOfAsms listOfAssignments = getController().getJsonReader().read();
                 getController().setListOfAssignments(listOfAssignments);
-                int hwIdStart = 1 + listOfAssignments.viewNumberFinishedAssignments() 
-                        + listOfAssignments.viewNumberUnfinishedAssignments();
+                int hwIdStart = 1 + getMaxID(listOfAssignments);
                 getController().sethwId(hwIdStart);
                 JOptionPane.showMessageDialog(null, "Assignments have loaded to the program!", "Success",
                         JOptionPane.INFORMATION_MESSAGE);
@@ -95,5 +99,33 @@ public class SaveAndLoadTab extends JPanel {
                 System.out.println("Unable to read from file");
             }
         });
+    }
+
+    // EFFECTS: Return the maximum of ID from all list of assignments
+    private int getMaxID(ListOfAsms listOfAssignments) {
+        int max = 0;
+        ArrayList<Homework> unfinishedAsms = listOfAssignments.getUnfinishedAssignments();
+        ArrayList<Homework> finishedAsms = listOfAssignments.getFinishedAssignments();
+        
+        for (Homework h : unfinishedAsms) {
+            if (h.getID() > max) {
+                max = h.getID();
+            }
+        }
+
+        for (Homework h : finishedAsms) {
+            if (h.getID() > max) {
+                max = h.getID();
+            }
+        }
+
+        return max;
+    }
+                
+                    // Sets Up a load button
+    private void loadButtonSetUp() {
+        loadButton.setFont(new Font("Arial", Font.PLAIN, 25));
+        loadButton.setPreferredSize(new Dimension(500, 200));
+        loadButton.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 }

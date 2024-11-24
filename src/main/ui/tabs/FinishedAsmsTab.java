@@ -74,7 +74,7 @@ public class FinishedAsmsTab extends JPanel {
                         + "Start Time: " + h.getStartTime() + "\n" 
                         + "Description: " + h.getDescription() + "\n" 
                         + "Finish Time: " + h.getFinishTime() + "\n" 
-                        + "Duration: " + h.getDuration() + "\n\n";
+                        + "Duration (Minutes): " + h.getDuration() + "\n\n";
             }
         }
 
@@ -153,7 +153,7 @@ public class FinishedAsmsTab extends JPanel {
                         + "Start Time: " + h.getStartTime() + "\n" 
                         + "Description: " + h.getDescription() + "\n" 
                         + "Finish Time: " + h.getFinishTime() + "\n" 
-                        + "Duration: " + h.getDuration() + "\n\n";
+                        + "Duration (Minutes): " + h.getDuration() + "\n\n";
             }
             JOptionPane.showMessageDialog(null, "Assignments have sorted in increasing order of duration!", 
                     "Success", JOptionPane.INFORMATION_MESSAGE);

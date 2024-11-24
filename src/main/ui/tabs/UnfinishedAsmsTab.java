@@ -129,9 +129,7 @@ public class UnfinishedAsmsTab extends JPanel {
     //          assignments list
     protected void addOneAssignmentNewFrame() {
         JFrame inputFrame = new JFrame("Add an assignment");
-        inputFrame.setSize(600, 800);
-        inputFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        inputFrame.setLayout(new GridLayout(10, 2));
+        gridFrameSetUp(inputFrame, 600, 400, 10, 2);
 
         JLabel nameLabel = new JLabel("Assignment Name:");
         JTextField nameField = new JTextField();
@@ -157,11 +155,27 @@ public class UnfinishedAsmsTab extends JPanel {
         JButton submitButton = new JButton("Add the assignment");
 
         addAsm(inputFrame, nameField, courseField, comboBox, dueDateField, startDateField, textArea, submitButton);
-
         setLayoutAndAdd(inputFrame, nameLabel, nameField, courseLabel, courseField, typeLabel, comboBox, dueDateLabel,
                 dueDateField, startDateLabel, startDateField, descriptionLabel, scrollPane, submitButton);
     }
 
+    // EFFECTS: Sets up the grid frame such as the size, close operation and the layout
+    private void gridFrameSetUp(JFrame inputFrame, int width, int height, int rows, int cols) {
+        inputFrame.setSize(width, height);
+        inputFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        inputFrame.setLayout(new GridLayout(rows, cols));
+        inputFrame.setLocationRelativeTo(null);
+    }
+
+    // EFFECTS: Sets up the flow frame
+    private void flowFrameSetUp(JFrame frame, int width, int height) {
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        frame.setSize(width, height);
+        frame.setLayout(new FlowLayout());
+        frame.setLocationRelativeTo(null);
+    }
+
+    
     // EFFECTS: Sets up the text area in the add-assignment frame
     private void textAreaSetUp(JTextArea textArea) {
         textArea.setWrapStyleWord(true);  
@@ -194,7 +208,6 @@ public class UnfinishedAsmsTab extends JPanel {
                     getController().getListOfAsms().addAssignment(hw);
                     JOptionPane.showMessageDialog(null, "Assignment added!", "Success", 
                             JOptionPane.INFORMATION_MESSAGE);
-    
                     inputFrame.dispose();
                 }
             }
@@ -207,6 +220,7 @@ public class UnfinishedAsmsTab extends JPanel {
             JTextField dueDateField, JLabel startDateLabel, JTextField startDateField, JLabel descriptionLabel,
             JScrollPane scrollPane, JButton submitButton) {
         inputFrame.setLayout(new GridLayout(7,2));
+
         inputFrame.add(nameLabel);
         inputFrame.add(nameField);
         inputFrame.add(courseLabel);
@@ -223,8 +237,6 @@ public class UnfinishedAsmsTab extends JPanel {
 
         inputFrame.setVisible(true);
     }
-
-    
 
     // EFFECTS: Determine whether the date format is valid
     protected boolean isValidTime(String time) {
@@ -292,9 +304,7 @@ public class UnfinishedAsmsTab extends JPanel {
     // EFFECTS: Create a new frame for user to choose edit due date or description
     private void chooseWhichPartNewFrame() {
         JFrame frame = new JFrame("Select a part");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        frame.setSize(300, 200);
-        frame.setLayout(new FlowLayout());
+        flowFrameSetUp(frame, 350, 100);
 
         JLabel questionLabel = new JLabel("Select which part of the assignment you want to edit:");
         JRadioButton option1 = new JRadioButton("Due Date");
@@ -341,9 +351,7 @@ public class UnfinishedAsmsTab extends JPanel {
     // EFFECTS: Create a new frame that allows users to edit the due date of the particular assignment
     protected void dueDateNewFrame() {
         JFrame newFrame = new JFrame("Edit Due Date");
-        newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        newFrame.setSize(600, 200);
-        newFrame.setLayout(new GridLayout(3, 2));
+        gridFrameSetUp(newFrame, 600, 200, 3, 2);
 
         JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
         JTextField idField = new JTextField();
@@ -358,6 +366,15 @@ public class UnfinishedAsmsTab extends JPanel {
         newFrame.add(idLabel);
         newFrame.add(idField);
         frameAddElements(newFrame, dueDateLabel, dueDateField, submitButton);
+    }
+
+    // EFFECTS: Add the frame, label and the button to the frame
+    private void frameAddElements(JFrame frame, JLabel label, JTextField field, JButton submitButton) {
+        frame.add(label);
+        frame.add(field);
+        frame.add(submitButton);
+        
+        frame.setVisible(true);
     }
 
     // MODIFIES: ListOfAsms
@@ -389,9 +406,7 @@ public class UnfinishedAsmsTab extends JPanel {
     // EFFECTS: Create a new frame that allows users to edit the description of the particular assignment
     protected void descriptionNewFrame() {
         JFrame newFrame = new JFrame("Edit Description");
-        newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        newFrame.setSize(600, 300);
-        newFrame.setLayout(new GridLayout(3, 2));
+        gridFrameSetUp(newFrame, 600, 300, 3, 2);
 
         JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
         JTextField idField = new JTextField();
@@ -404,7 +419,12 @@ public class UnfinishedAsmsTab extends JPanel {
         JButton submitButton = new JButton("Edit Description");
 
         editDescription(newFrame, idField, textArea, submitButton);
+        descripFrameAddElements(newFrame, idLabel, idField, descriptionLabel, scrollPane, submitButton);
+    }
 
+    // EFFECTS: Add the elements to the description frame
+    private void descripFrameAddElements(JFrame newFrame, JLabel idLabel, JTextField idField, JLabel descriptionLabel,
+            JScrollPane scrollPane, JButton submitButton) {
         newFrame.add(idLabel);
         newFrame.add(idField);
         newFrame.add(descriptionLabel);
@@ -459,9 +479,7 @@ public class UnfinishedAsmsTab extends JPanel {
     // EFFECTS: Create a new frame that allows users to remove a particular assignment
     protected void removeAssignmentWindow() {
         JFrame frame = new JFrame("Remove an assignment");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        frame.setSize(600, 100);
-        frame.setLayout(new GridLayout(2,2));
+        gridFrameSetUp(frame, 600, 100, 2, 2);
 
         JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
         JTextField idField = new JTextField();
@@ -488,15 +506,6 @@ public class UnfinishedAsmsTab extends JPanel {
         });
 
         frameAddElements(frame, idLabel, idField, submitButton);
-    }
-
-    // EFFECTS: Add the frame, label and the button to the frame
-    private void frameAddElements(JFrame frame, JLabel idLabel, JTextField idField, JButton submitButton) {
-        frame.add(idLabel);
-        frame.add(idField);
-        frame.add(submitButton);
-        
-        frame.setVisible(true);
     }
 
     // MODIFIES: this
@@ -538,9 +547,7 @@ public class UnfinishedAsmsTab extends JPanel {
     // EFFECTS: Create a new frame that allows users to finish a particular assignment
     protected void moveAssignmentWindow() {
         JFrame frame = new JFrame("Finish an assignment");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        frame.setSize(600, 250);
-        frame.setLayout(new GridLayout(3,2));
+        gridFrameSetUp(frame, 600, 250, 3, 2);
 
         JLabel idLabel = new JLabel("Assignment ID that represents an assignment:");
         JTextField id2Field = new JTextField();
@@ -567,7 +574,6 @@ public class UnfinishedAsmsTab extends JPanel {
                 int enteredID = Integer.parseInt(id2Field.getText());
                 String finishDate = finishDateField.getText();
                 
-
                 if (getController().getListOfAsms().getHWbyID(enteredID) == null) {
                     JOptionPane.showMessageDialog(null, "Assignment not found!", "Null Assignment", 
                             JOptionPane.WARNING_MESSAGE);
