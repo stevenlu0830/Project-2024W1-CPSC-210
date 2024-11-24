@@ -89,10 +89,14 @@ public class FinishedAsmsTab extends JPanel {
             return "Short Questions";
         } else if (t == AsmType.Essay) {
             return "Essay";
-        } else if (t == AsmType.ExtraPractices) {
+        } else if (t == AsmType.ExtraPractice) {
             return "Extra Practices";
         } else if (t == AsmType.Readings) {
             return "Readings";
+        } else if (t == AsmType.Coding) {
+            return "Coding";
+        } else if (t == AsmType.Project) {
+            return "Project";
         } else if (t == AsmType.Others) {
             return "Others";
         } else {

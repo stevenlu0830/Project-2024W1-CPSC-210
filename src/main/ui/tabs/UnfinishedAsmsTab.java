@@ -102,10 +102,14 @@ public class UnfinishedAsmsTab extends JPanel {
             return "Short Questions";
         } else if (t == AsmType.Essay) {
             return "Essay";
-        } else if (t == AsmType.ExtraPractices) {
+        } else if (t == AsmType.ExtraPractice) {
             return "Extra Practices";
         } else if (t == AsmType.Readings) {
             return "Readings";
+        } else if (t == AsmType.Coding) {
+            return "Coding";
+        } else if (t == AsmType.Project) {
+            return "Project";
         } else if (t == AsmType.Others) {
             return "Others";
         } else {
@@ -138,7 +142,7 @@ public class UnfinishedAsmsTab extends JPanel {
         JTextField courseField = new JTextField();
 
         JLabel typeLabel = new JLabel("Assignment Type: ");
-        String[] options = {"Quiz", "Short Questions", "Essay", "Extra Practices", "Readings", "Others"};
+        String[] options = {"Quiz", "Short Questions", "Essay", "Extra Practices", "Readings", "Coding", "Project", "Others"};
         JComboBox<String> comboBox = new JComboBox<>(options);
 
         JLabel dueDateLabel = new JLabel("Due Date and Time (yyyy-mm-dd hh:mm):");
@@ -268,9 +272,13 @@ public class UnfinishedAsmsTab extends JPanel {
         } else if (typeEntered.equals("Essay")) {
             return AsmType.Essay;
         } else if (typeEntered.equals("Extra Practices")) {
-            return AsmType.ExtraPractices;
+            return AsmType.ExtraPractice;
         } else if (typeEntered.equals("Readings")) {
             return AsmType.Readings;
+        } else if (typeEntered.equals("Coding")) {
+            return AsmType.Coding;
+        } else if (typeEntered.equals("Project")) {
+            return AsmType.Project;
         } else if (typeEntered.equals("Others")) {
             return AsmType.Others;
         } else {
