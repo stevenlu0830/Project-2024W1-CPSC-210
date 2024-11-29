@@ -1,5 +1,8 @@
 package ui;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,7 +10,8 @@ import javax.swing.JTabbedPane;
 
 import persistence.JsonReader;
 import persistence.JsonWriter;
-
+import model.Event;
+import model.EventLog;
 import model.ListOfAsms;
 import ui.tabs.FinishedAsmsTab;
 import ui.tabs.SaveAndLoadTab;
@@ -41,7 +45,17 @@ public class AsmTrackingUI {
     // EFFECTS: creates the GUI frame, a sidebar on the left, new lists of assignments
     public AsmTrackingUI() {
         frame = new JFrame("Assignment Tracking Application");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printEventsLogged();
+                frame.dispose();
+                System.exit(0);
+            }
+        });
+
         frame.setSize(WIDTH, HEIGHT);
         frame.setResizable(false);
 
@@ -56,6 +70,12 @@ public class AsmTrackingUI {
 
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+    }
+
+    protected void printEventsLogged() {
+        for (Event e : EventLog.getInstance()) {
+            System.out.println(e.toString());
+        }
     }
 
     // Getters

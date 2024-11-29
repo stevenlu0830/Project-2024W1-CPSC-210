@@ -41,6 +41,7 @@ public class ListOfAsms implements Writable {
     // EFFECTS: Add a new assignment to a list of unfinished assignments
     public void addAssignment(Homework homework) {
         unfinishedAssignments.add(homework);
+        EventLog.getInstance().logEvent(new Event("Added an unfinished assignment"));
     } 
 
     // REQUIRES: The format of dueDate and startTime must be "yyyy-mm-dd hh:mm", in string type.
@@ -65,6 +66,7 @@ public class ListOfAsms implements Writable {
         if (hw != null) {
             hw.setDueDate(dueDate);
         }
+        EventLog.getInstance().logEvent(new Event("Edited the due date of an assignment"));
     }
 
     // REQUIRES: id > 0. 
@@ -75,6 +77,7 @@ public class ListOfAsms implements Writable {
         if (hw != null) {
             hw.setDescription(description);
         }
+        EventLog.getInstance().logEvent(new Event("Edited the description of an assignment"));
     }
 
     // REQUIRES: id > 0. 
@@ -85,15 +88,18 @@ public class ListOfAsms implements Writable {
         if (hw != null) {
             unfinishedAssignments.remove(hw);
         }
+        EventLog.getInstance().logEvent(new Event("Removed an unfinished assignment"));
     }
 
     // EFFECTS: View the number of unfinished assignments in the list
     public int viewNumberUnfinishedAssignments() {
+        EventLog.getInstance().logEvent(new Event("Viewed the number of unfinished assignments"));
         return unfinishedAssignments.size();
     }
 
     // EFFECTS: View the number of finished assignments in the list
     public int viewNumberFinishedAssignments() {
+        EventLog.getInstance().logEvent(new Event("Viewed the number of finished assignments"));
         return finishedAssignments.size();
     }
 
@@ -113,6 +119,7 @@ public class ListOfAsms implements Writable {
             finishedAssignments.add(hw);
             unfinishedAssignments.remove(hw);
         }
+        EventLog.getInstance().logEvent(new Event("Finished an assignment"));
     }
 
 
@@ -124,6 +131,7 @@ public class ListOfAsms implements Writable {
             sortedFinishedAssignments.add(h);
         }
         sortedFinishedAssignments.sort(Comparator.comparingLong(Homework::getDuration));
+        EventLog.getInstance().logEvent(new Event("Sorted finished assignments in increasing order of time spent"));
     }
 
     // REQUIRES: id > 0
@@ -182,4 +190,13 @@ public class ListOfAsms implements Writable {
         return jsonArray;
     }
 
+    // EFFECTS: log the view the list of unfinished assignments event into the list
+    public void viewUnfinishedAsmsLog() {
+        EventLog.getInstance().logEvent(new Event("Viewed the list of unfinished assignments"));
+    }
+
+    // EFFECTS: log the view the list of finished assignments event into the list
+    public void viewFinishedAsmsLog() {
+        EventLog.getInstance().logEvent(new Event("Viewed the list of finished assignments"));
+    }
 }

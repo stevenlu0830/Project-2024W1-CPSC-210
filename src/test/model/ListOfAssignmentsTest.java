@@ -133,5 +133,11 @@ public class ListOfAssignmentsTest {
         assertEquals(1, json.getJSONArray("unfinishedAssignments").length());
     }
 
+    @Test
+    public void testLogViewAsms() {
+        testList.viewUnfinishedAsmsLog();
+        testList.viewFinishedAsmsLog();
+    }
+
     
 }

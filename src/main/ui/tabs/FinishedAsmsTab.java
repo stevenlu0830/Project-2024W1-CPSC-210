@@ -76,8 +76,8 @@ public class FinishedAsmsTab extends JPanel {
                         + "Finish Time: " + h.getFinishTime() + "\n" 
                         + "Duration (Minutes): " + h.getDuration() + "\n\n";
             }
+            getController().getListOfAsms().viewFinishedAsmsLog();
         }
-
         textArea.setText(list);
     }
 

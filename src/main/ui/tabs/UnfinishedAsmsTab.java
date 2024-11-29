@@ -89,6 +89,7 @@ public class UnfinishedAsmsTab extends JPanel {
                         + "Finish Time: " + h.getFinishTime() + "\n" 
                         + "Duration: " + h.getDuration() + "\n\n";
             }
+            getController().getListOfAsms().viewUnfinishedAsmsLog();
         }
 
         textArea.setText(list);
@@ -142,7 +143,8 @@ public class UnfinishedAsmsTab extends JPanel {
         JTextField courseField = new JTextField();
 
         JLabel typeLabel = new JLabel("Assignment Type: ");
-        String[] options = {"Quiz", "Short Questions", "Essay", "Extra Practices", "Readings", "Coding", "Project", "Others"};
+        String[] options = {"Quiz", "Short Questions", "Essay", "Extra Practices", "Readings", "Coding", "Project", 
+                "Others"};
         JComboBox<String> comboBox = new JComboBox<>(options);
 
         JLabel dueDateLabel = new JLabel("Due Date and Time (yyyy-mm-dd hh:mm):");

@@ -61,3 +61,43 @@ Read and write JSON - Code Reference: (JsonSerializationDemo) https://github.stu
 - You can locate my visual component by seeing the images on the buttons on the sidebar, on the save assignment button and the load assignment button. They are png images that are stored on the **images** package under **src** package.
 - You can save the state of my application by first clicking the **Save/Load Assignments** button on the sidebar. Click **Save to Computer** button on the panel to save the state of my application.
 - You can reload the state of my application by first clicking the **Save/Load Assignments** button on the sidebar. Click **Load from Computer** button on the panel to reload the state of my application.
+
+## Phase 4: Task 2
+Fri Nov 29 15:47:26 PST 2024
+Added an unfinished assignment
+Fri Nov 29 15:47:29 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:47:55 PST 2024
+Added an unfinished assignment
+Fri Nov 29 15:48:02 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:48:18 PST 2024
+Edited the due date of an assignment
+Fri Nov 29 15:48:22 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:48:31 PST 2024
+Edited the description of an assignment
+Fri Nov 29 15:48:34 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:48:45 PST 2024
+Removed an unfinished assignment
+Fri Nov 29 15:48:49 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:49:05 PST 2024
+Added an unfinished assignment
+Fri Nov 29 15:49:09 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:49:11 PST 2024
+Viewed the number of unfinished assignments
+Fri Nov 29 15:49:25 PST 2024
+Finished an assignment
+Fri Nov 29 15:49:27 PST 2024
+Viewed the list of unfinished assignments
+Fri Nov 29 15:49:44 PST 2024
+Finished an assignment
+Fri Nov 29 15:49:52 PST 2024
+Viewed the list of finished assignments
+Fri Nov 29 15:49:54 PST 2024
+Viewed the number of finished assignments
+Fri Nov 29 15:49:57 PST 2024
+Sorted finished assignments in increasing order of time spent

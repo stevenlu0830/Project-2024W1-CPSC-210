@@ -122,7 +122,7 @@ public class SaveAndLoadTab extends JPanel {
         return max;
     }
                 
-                    // Sets Up a load button
+    // EFFFECTS: Sets Up a load button
     private void loadButtonSetUp() {
         loadButton.setFont(new Font("Arial", Font.PLAIN, 25));
         loadButton.setPreferredSize(new Dimension(500, 200));
