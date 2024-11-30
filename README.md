@@ -101,3 +101,6 @@ Fri Nov 29 15:49:54 PST 2024
 Viewed the number of finished assignments
 Fri Nov 29 15:49:57 PST 2024
 Sorted finished assignments in increasing order of time spent
+
+## Phase 4: Task 3
+If I have more time to work on the project, I wish to refactor by creating unfinished assignments, finished assignments classes that extends ListOfAsms class, and sorted finished assignments classes that extends finished assignments class. The reason why to do this refactoring is to improve the cohesion of the program. ListOfAsms class does the operations of unfinished assignments, as well as doing the operation of finished assignments and sorted finished assignments. This violates the single user responsibility and those lists of assignments should be separated as classes.
