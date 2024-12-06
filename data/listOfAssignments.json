@@ -1,51 +1,5 @@
 {
     "unfinishedAssignments": [],
-    "sortedFinishedAssignments": [
-        {
-            "duration": 1,
-            "finishTime": "2020-11-11 22:23",
-            "dueDate": "2020-11-11 22:22",
-            "name": "name3",
-            "course": "course2",
-            "description": "",
-            "startTime": "2020-11-11 22:22",
-            "hwID": 3,
-            "type": "Quiz"
-        },
-        {
-            "duration": 28,
-            "finishTime": "2020-11-11 11:40",
-            "dueDate": "2021-11-11 11:11",
-            "name": "name2",
-            "course": "course2",
-            "description": "",
-            "startTime": "2020-11-11 11:12",
-            "hwID": 2,
-            "type": "Essay"
-        }
-    ],
-    "finishedAssignments": [
-        {
-            "duration": 28,
-            "finishTime": "2020-11-11 11:40",
-            "dueDate": "2021-11-11 11:11",
-            "name": "name2",
-            "course": "course2",
-            "description": "",
-            "startTime": "2020-11-11 11:12",
-            "hwID": 2,
-            "type": "Essay"
-        },
-        {
-            "duration": 1,
-            "finishTime": "2020-11-11 22:23",
-            "dueDate": "2020-11-11 22:22",
-            "name": "name3",
-            "course": "course2",
-            "description": "",
-            "startTime": "2020-11-11 22:22",
-            "hwID": 3,
-            "type": "Quiz"
-        }
-    ]
+    "sortedFinishedAssignments": [],
+    "finishedAssignments": []
 }

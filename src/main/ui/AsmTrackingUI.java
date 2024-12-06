@@ -42,7 +42,7 @@ public class AsmTrackingUI {
     }
 
     // MODIFIES: this
-    // EFFECTS: creates the GUI frame, a sidebar on the left, new lists of assignments
+    // EFFECTS: creates the GUI frame, a sidebar on the left, new lists of assignments, and actions when closing window
     public AsmTrackingUI() {
         frame = new JFrame("Assignment Tracking Application");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -72,6 +72,7 @@ public class AsmTrackingUI {
         frame.setVisible(true);
     }
 
+    // EFFECTS: Print the list of events logged
     protected void printEventsLogged() {
         for (Event e : EventLog.getInstance()) {
             System.out.println(e.toString());
