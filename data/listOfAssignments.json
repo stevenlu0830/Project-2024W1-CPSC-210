@@ -1,5 +1,15 @@
 {
-    "unfinishedAssignments": [],
+    "unfinishedAssignments": [{
+        "duration": 0,
+        "finishTime": "",
+        "dueDate": "2024-11-11 13:00",
+        "name": "name",
+        "course": "course",
+        "description": "",
+        "startTime": "2024-11-11 13:00",
+        "hwID": 1,
+        "type": "Essay"
+    }],
     "sortedFinishedAssignments": [],
     "finishedAssignments": []
 }
